@@ -38,7 +38,7 @@
 <legend>Communiqué à toute l'équipe:</legend>
 <p style="color:red; font-weight: bold; padding-left: 10px;">Merci de récoleter les informations concernant le jeu.</p>
 <?php   
-$sql = "SELECT * FROM `sous-taches`";
+$sql = "SELECT * FROM `sous-taches`  ORDER BY `nom` ASC ";
 $req = $DB->prepare($sql);
 $req->execute();
 
@@ -81,7 +81,7 @@ $cat =stripcslashes($_GET['categorie']);
             
         }else{         //PARTIE MENU-SOUS-TACHES COMMENCE ICI
         
-        $sql= "SELECT * FROM `sous-taches` WHERE `categorie`='$cat' && `tache`='$tache'  ORDER BY `id` ASC LIMIT 0, 100" ;
+        $sql= "SELECT * FROM `sous-taches` WHERE `categorie`='$cat' && `tache`='$tache'  ORDER BY `nom` ASC LIMIT 0, 100" ;
         $req = $DB->prepare($sql);
         $req->execute();
         while ($d = $req->fetch(PDO::FETCH_OBJ)) {
@@ -107,7 +107,7 @@ $cat =stripcslashes($_GET['categorie']);
             if(isset($_POST)&&!empty($_POST)){ 
              
                 ajouterTache($DB,$_POST['titre'],$cat);
-                header("Location: index.php?page=admin&&categorie=$cat");
+                header("Location: index.php?page=admin&&categorie=$cat&&addTache=1");
             }           
             ?>
 
@@ -126,7 +126,7 @@ $cat =stripcslashes($_GET['categorie']);
     <a style="color: orange; padding-left: 5px; " href="index.php?page=admin&&categorie=<?php echo $cat;?>&&addTache=1">Cliquez ici...</a>
 </fieldset>      
 <?php }
-    $sql= "SELECT * FROM `taches` WHERE `categorie`='$cat' ORDER BY `id` ASC LIMIT 0, 100" ;
+    $sql= "SELECT * FROM `taches` WHERE `categorie`='$cat' ORDER BY `tache` ASC LIMIT 0, 100" ;
     $req = $DB->prepare($sql);
     $req->execute();
     

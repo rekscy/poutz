@@ -25,7 +25,7 @@
         });
         </script>
 
-        <span style="color: orange;font-weight: bold; padding-left: 5px;" >Progression total</span>
+        <span style="color: orange;font-weight: bold; padding-left: 5px;" >Avancement de la création de structure</span>
         <div  id="serveur"></div></a><hr style="margin-bottom: 10px; color:#945522; border: #945522;"/>
 </fieldset>
 
@@ -40,9 +40,10 @@ $cat =stripcslashes($_GET['categorie']);
     if(isset($_GET['tache'])&&  is_numeric($_GET['tache'])){
 
         $tache =stripcslashes($_GET['tache']);
-        $sql= "SELECT * FROM `sous-taches` WHERE `categorie`='$cat' && `tache`='$tache'  ORDER BY `id` ASC LIMIT 0, 100" ;
+        $sql= "SELECT * FROM `sous-taches` WHERE `categorie`='$cat' && `tache`='$tache'  ORDER BY `nom` ASC LIMIT 0, 100" ;
         $req = $DB->prepare($sql);
         $req->execute();
+        
         while ($d = $req->fetch(PDO::FETCH_OBJ)) {
 
         $prCnt= calculPercent($d->nbrTotalAction, $d->nbrActionTermine);?>
@@ -62,10 +63,10 @@ $cat =stripcslashes($_GET['categorie']);
     
     }else{
 
-    $sql= "SELECT * FROM `taches` WHERE `categorie`='$cat' ORDER BY `id` ASC LIMIT 0, 100" ;
+    $sql= "SELECT * FROM `taches` WHERE `categorie`='$cat' ORDER BY `tache` ASC LIMIT 0, 100" ;
     $req = $DB->prepare($sql);
     $req->execute();
-    
+    echo "<br/><a style='padding:0px;padding-right:10px; color:gold; font-size:10px; float:right;' href='index.php?page=statusServer'>Revenir en arrière</a><br/><br/>";
     while ($d = $req->fetch(PDO::FETCH_OBJ)) {
 
     $prCnt= CalculPourcentAvance($DB, 'tache', $d->id);?>
@@ -111,7 +112,7 @@ $prCnt= CalculPourcentAvance($DB, 'categorie', $d->id);?>
 
 </fieldset>
 
-<fieldset style="background:  #0A0501; border: #080301 1px solid; margin-bottom: 5px; margin-left: 3px; padding: 1px; ">   
+<fieldset style="background:  #0A0501; border:  #945522 1px solid; margin-bottom: 5px; margin-left: 3px; padding: 1px; ">   
 <legend>Les rates</legend>
 
         <p  style="font-size:11px; text-shadow:0px 0px 3px #000;">
