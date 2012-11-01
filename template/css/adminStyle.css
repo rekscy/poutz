@@ -1,0 +1,166 @@
+/* 
+    Document   : deafault
+    Created on : 8 janv. 2012, 22:57:13
+    Author     : Rexy
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+/*Début Généralités*/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+em, img, strong, dl, dt, dd, ol, ul, li, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; }
+ol, ul { list-style: none; }
+table, caption, tbody, tfoot, thead, tr, th, td {
+    border: none;
+}
+
+html, body, a { height: 100%; font: normal 13px/1.1  Arial, Helvetica, sans-serif; font-weight: lighter; vertical-align: top;}
+a { outline: none; text-decoration: none; color: #e87300; font-weight: lighter; }
+a:hover { outline: none; text-decoration: underline; color: #e87300 ; }
+p { margin: 0.2em 0 }
+textarea { overflow: auto; }
+
+.clear{
+    clear: both;
+}
+legend{
+    color:#FFF;
+    font-weight: bold;
+}
+
+
+fieldset{
+    margin-top: 10px;
+    color: #FFF;
+    padding:10px;
+    /* coins arrondis */
+    border: #967332 1px solid;
+    box-shadow:inner 0 0 1px #000;
+    border-radius:5px 5px 5px 5px;
+    -moz-border-radius:5px 5px 5px 5px;
+    -webkit-border-radius:5px 5px 5px 5px;
+}
+
+.erreurFormulaire{
+    background: #fed9d9 ;
+    margin: auto;
+    margin-top: 20px;
+    font-size:16px;
+    font-weight: bold;
+    width: 500px;
+    display: block;
+    padding: 10px;
+    color: red;
+    border: solid 2px darksalmon ;
+    text-align: center;
+    border-radius:5px 5px 5px 5px;
+    border-radius:3px 3px 3px 3px;
+    -moz-border-radius:3px 3px 3px 3px;
+    -webkit-border-radius:3px 3px 3px 3px;
+    opacity: 1;
+}
+
+
+.validFormulaire{
+    background: palegreen ;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size:14px;
+    font-weight: bold;
+    width: 320px;
+    display: block;
+    padding: 10px;
+    border: solid 2px greenyellow ;
+    text-align: center;
+    color: greenyellow;
+   list-style: circle;
+    text-shadow:0px 0px 0px #000;
+    border-radius:5px 5px 5px 5px;
+    border-radius:3px 3px 3px 3px;
+    -moz-border-radius:3px 3px 3px 3px;
+    -webkit-border-radius:3px 3px 3px 3px;
+    opacity: 1;
+}
+
+body{
+    background: url('../img/background.jpg') top center no-repeat #0a0504;
+    margin:auto;
+}
+
+#content{
+   
+    min-height: 1200px;
+    width: 984px;
+    display: block;
+    position: relative; 
+    margin:auto;
+}
+
+#contentMenu{
+    height:30px;
+    width: 964px;
+    display: block;
+    font-size:18px;
+    font-weight: bold;
+    padding: 10px;
+    border: solid 2px #322000 ;
+    text-align: center;
+    color: #322000;
+    text-shadow:3px 0px 0px #322000;
+    border-radius:5px 5px 5px 5px;
+    -moz-border-radius:5px 5px 5px 5px;
+    -webkit-border-radius:5px 5px 5px 5px;
+}
+
+#contentMenu #menu{
+    height:14px;
+    width: 964px;
+    display: block;
+}
+
+#contentMenu #submenu{
+    height:14px;
+    width: 964px;
+    display: block;
+    margin-top: 5px;
+    text-align: left;
+}
+
+
+.menuHeader{
+    height: 14px;
+    min-width: 65px;
+    padding: 3px;
+    padding-bottom: 0;
+    padding-top: 0;
+    display: block;
+    cursor: pointer;
+    font-size:16px;
+    font-weight: bold;
+    color: #fca300;
+    float: left;
+    line-height: 18px;
+    margin-top: -5px;
+    margin-left: 20px;
+}
+
+#titreAdministration{
+    
+    height:50px;
+    width: 964px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #f4b202;
+    border: solid 2px #ffe08f ;
+    text-shadow:4px 0px 0px #322000;
+    border-radius:5px 5px 5px 5px;
+    -moz-border-radius:5px 5px 5px 5px;
+    -webkit-border-radius:5px 5px 5px 5px;
+}

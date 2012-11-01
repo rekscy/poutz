@@ -1,0 +1,814 @@
+/* 
+    Document   : deafault
+    Created on : 8 janv. 2012, 22:57:13
+    Author     : Rexy
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+/*Début Généralités*/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+em, img, strong, dl, dt, dd, ol, ul, li, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; }
+ol, ul { list-style: none; }
+table, caption, tbody, tfoot, thead, tr, th, td {
+    border: none;
+}
+
+html, body, a { height: 100%; font: normal 13px/1.1  Arial, Helvetica, sans-serif; font-weight: lighter; vertical-align: top;font: normal 13px/1.5  Arial, Helvetica, sans-serif;}
+a { outline: none; text-decoration: none; font-size: 14px; font-weight: bold; color: #ffae00;}
+a:hover { outline: none; text-decoration: underline; color: #ffae00 ; }
+p { margin: 0.5em 0 ; color: white; font-weight: bold; }
+textarea { overflow: auto; }
+
+legend{
+    color:#FFF;
+}
+
+
+fieldset{
+    margin-top: 10px;
+    color: #FFF;
+    padding:10px;
+    /* coins arrondis */
+    border: #967332 1px solid;
+    box-shadow:inner 0 0 1px #000;
+    border-radius:5px 5px 5px 5px;
+    -moz-border-radius:5px 5px 5px 5px;
+    -webkit-border-radius:5px 5px 5px 5px;
+}
+
+.erreurFormulaire{
+    background: #fed9d9 ;
+    margin: auto;
+    margin-top: 20px;
+    font-size:16px;
+    font-weight: bold;
+    width: 500px;
+    display: block;
+    padding: 10px;
+    color: red;
+    border: solid 2px darksalmon ;
+    text-align: center;
+    border-radius:5px 5px 5px 5px;
+    border-radius:3px 3px 3px 3px;
+    -moz-border-radius:3px 3px 3px 3px;
+    -webkit-border-radius:3px 3px 3px 3px;
+    opacity: 1;
+}
+
+
+.validFormulaire{
+    background: palegreen ;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size:14px;
+    font-weight: bold;
+    width: 320px;
+    display: block;
+    padding: 10px;
+    border: solid 2px greenyellow ;
+    text-align: center;
+    color: greenyellow;
+   list-style: circle;
+    text-shadow:0px 0px 0px #000;
+    border-radius:5px 5px 5px 5px;
+    border-radius:3px 3px 3px 3px;
+    -moz-border-radius:3px 3px 3px 3px;
+    -webkit-border-radius:3px 3px 3px 3px;
+    opacity: 1;
+}
+.champOrange{
+    margin: auto;
+    margin-top: 20px;
+    font-size:12px;
+    width: 400px;
+    display: block;
+    text-shadow:0px 0px 4px #000;
+    padding: 40px;
+    color: #FFF ;
+    border: solid 1px #e87300;
+    border-radius:5px 5px 5px 5px;
+    border-radius:3px 3px 3px 3px;
+    -moz-border-radius:3px 3px 3px 3px;
+    -webkit-border-radius:3px 3px 3px 3px;
+    background: url('../img/backnews.png') top center no-repeat;
+}
+
+.contentForme{
+    margin: auto;
+    margin-top: 20px;
+    font-size:11px;
+    width: 400px;
+    display: block;
+    text-shadow:0px 0px 4px #322920;
+    padding: 40px;
+    color: #f5e5d4;
+    padding-top: 10px;
+    border: solid 2px #322920;
+    border-radius:5px 5px 5px 5px;
+    border-right: none;
+    border-bottom: none;
+    border-radius:3px 3px 3px 3px;
+    -moz-border-radius:3px 3px 3px 3px;
+    -webkit-border-radius:3px 3px 3px 3px;
+    opacity: 0.8;
+background-image: linear-gradient(bottom, rgb(26,24,19) 22%, rgb(28,25,19) 48%, rgb(59,54,42) 76%);
+background-image: -o-linear-gradient(bottom, rgb(26,24,19) 22%, rgb(28,25,19) 48%, rgb(59,54,42) 76%);
+background-image: -moz-linear-gradient(bottom, rgb(26,24,19) 22%, rgb(28,25,19) 48%, rgb(59,54,42) 76%);
+background-image: -webkit-linear-gradient(bottom, rgb(26,24,19) 22%, rgb(28,25,19) 48%, rgb(59,54,42) 76%);
+background-image: -ms-linear-gradient(bottom, rgb(26,24,19) 22%, rgb(28,25,19) 48%, rgb(59,54,42) 76%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.22, rgb(26,24,19)),
+	color-stop(0.48, rgb(28,25,19)),
+	color-stop(0.76, rgb(59,54,42))
+);
+    box-shadow: 3px 3px #4f4637;
+}
+
+
+.nextStage{
+    width: 133px;
+    height: 33px;
+    display: block;
+    background: url('../img/nextStage.png') top center repeat;
+    border: none;
+    margin: auto;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.nextStage:hover{
+    opacity:1;
+}
+
+img{
+    display: block;
+    border:none;
+}
+
+
+/*Fin Généralités*/
+
+
+
+/*Début du Carrousel*/
+#caroussel{
+    margin: auto;
+    overflow:hidden;
+    height: 172px;
+    width: 660px;
+    display: block;
+    float: left;
+}
+#caroussel .slide{
+	
+	top:5px;
+	left:5px;
+	height:200px;
+	width: 927px;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+}
+
+#caroussel .titre{
+	height:25px;
+	width: 892px;
+	bottom: 10px;
+	left: 0;
+        margin-top:-30px;
+	font-size:small;
+	color:#FFF;
+        font-weight:bold;
+        text-shadow: #000 0px 0px 0px;
+	padding-left:35px;
+	line-height: 30px;
+}
+
+.navigation {
+	margin-top: -50px;
+	padding-left: 570px;
+        display: block;
+        min-height:25px;
+	width: 12px;
+        
+}
+
+.navigation span{
+	background:#322000;
+	color:#b51f00;
+        font-size: 0px;
+	padding: 5px 5px;
+	margin-right: 8px;
+	cursor: pointer;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	
+}
+
+.navigation span:hover, .navigation span.active{
+	background:#f39d00;
+	color:#f39d00;
+}
+/*Fin du Carrousel*/
+
+
+
+
+
+/*Début du body*/
+body{
+    background: url('../img/background_dev.jpg') top center no-repeat #000101;
+    margin:auto;
+}
+
+#nav{
+    background: url('../img/header-dev.png') top center no-repeat ;
+    margin:auto;
+    height: 247px;
+    width: 984px;
+    display: block;
+    position: relative;
+}
+
+
+/*DEBUT DU MENU*/
+#nav #menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 45px;
+    width: 984px;
+    display: block;
+    padding-top: 150px;
+}
+#nav #menu a{
+    color: #fed17a;
+    font: normal 24px/1.2  "Trojan Pro", arial, sans-serif; font-weight: lighter; vertical-align: top;
+    font-size: 24px;
+    cursor: pointer;
+    text-shadow:0px 0px 2px #fff;
+}
+#nav #menu a:hover{
+    color: #ffe6b5;
+    
+}
+html body div#nav ul#menu li div.menu-conteneur-1 div.colonne-1 ul li a{
+    color: #e1c184;
+     font: normal 14px/1.1  arial, sans-serif; font-weight: lighter; vertical-align: top;
+    padding-left: 5px;
+    text-shadow:0px 0px 0px #fff;
+    font-size: 14px;
+    cursor: pointer; 
+}
+html body div#nav ul#menu li div.menu-conteneur-1 div.colonne-1 ul li:hover a{
+    color: #ffdc96;
+    text-shadow:0px 0px 2px #fff;
+    text-decoration: underline;
+}
+#menu{
+    list-style:none;
+
+}
+
+/* onglet ici */
+
+#menu li{
+    float:left;
+    display:block;
+    position:relative;
+    text-align:center;
+    padding:4px 9px;
+    margin:7px 30px 0 0;
+    border:none;
+}
+
+#menu li:hover{
+    padding:4px 9px;
+}
+
+
+/* conteneurs ici */
+
+.menu-conteneur-1,
+.menu-conteneur-2,
+.menu-conteneur-3,
+.menu-conteneur-4{
+    margin:0px auto;
+    float:left;
+    position:absolute;
+    left:-999em;
+    text-align:left;
+    padding:10px 5px;
+    border-top:none;
+    background: url('../img/sous_menu-dev.png') bottom center no-repeat;
+    opacity: 0.8;
+}
+
+.menu-conteneur-1{
+    width:140px;
+}
+.menu-conteneur-2{
+    width:280px;
+}
+.menu-conteneur-3{
+    width:420px;
+}
+.menu-conteneur-4{
+    width:560px;
+}
+
+#menu li:hover .menu-conteneur-1,
+#menu li:hover .menu-conteneur-2,
+#menu li:hover .menu-conteneur-3,
+#menu li:hover .menu-conteneur-4{
+    top:auto;
+    left:-1px;
+}
+
+
+/* contenants ici */
+
+.colonne-1,
+.colonne-2,
+.colonne-3,
+.colonne-4{
+    display:inline;
+    float:left;
+    position:relative;
+    margin:0 5px;
+}
+
+.colonne-1{
+    width:150px;
+}
+.colonne-2{
+    width:260px;
+}
+.colonne-3{
+    width:390px;
+}
+.colonne-4{
+    width:520px;
+}
+
+/* menu droit */
+
+#menu .menu-droit{
+    float:right;
+    margin-right:0px;
+}
+
+#menu li .align-droit{
+    /* coins arrondis */
+    
+    border-radius:5px 0 5px 5px;
+    -moz-border-radius:5px 0 5px 5px;
+    -webkit-border-radius:5px 0 5px 5px;
+}
+
+#menu li:hover .align-droit{
+    left:auto;
+    right:-1px;
+    top:auto;
+}
+
+/* menu h2, h3, p, etc.... */
+
+#menu p,
+#menu h2,
+#menu h3,
+#menu ul li{
+    line-height:20px;
+    font-size:14px;
+    text-align:left;
+}
+
+#menu p{
+    line-height:18px;
+    margin-bottom:10px;
+}
+
+#menu h3{
+    font-size:11px;
+    margin:7px 0 14px 0;
+    padding-bottom:5px;
+    text-transform:uppercase;
+}
+
+
+#menu li ul{
+    list-style:none;
+    padding:0;
+    margin-bottom:12px;
+}
+
+#menu li ul li{
+    font-size:12px;
+    line-height:24px;
+    position:relative;
+    text-shadow:1px 1px 1px #fff;
+    padding:0;
+    margin:0;
+    float:none;
+    text-align:left;
+    width:130px;
+}
+
+#menu li ul li:hover{
+    border:none;
+    background:none;
+    padding:0;
+    margin:0;
+}
+
+/*Fin du menu*/
+/*Fin du body*/
+
+
+
+/*DEBUT MAIN CONTENT*/
+#mainContent{
+    background: url('../img/bgMainContent_boutique.jpg') top center no-repeat #140903;
+    margin:auto;
+    min-height: 930px;
+    width: 984px;
+    display: block;
+    -moz-box-shadow: inset 0 0 5px  #6c3b22;
+    -webkit-box-shadow: inset 0 0 5px #6c3b22;
+    box-shadow: inset 0 0 5px #6c3b22;
+    
+}
+
+
+#blockLeft{
+    margin:auto;
+    min-height: 930px;
+    width: 282px;
+    display: block;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+
+#interface_compte{
+    background: url('../img/bg_int_boutique_joueur.png') top center no-repeat ;
+    margin:auto;
+    height: 234px;
+    width: 282px;
+    display: block;
+    margin-bottom: 10px;
+    padding-top: 40px;
+}
+
+
+#interface_service{
+    background: url('../img/bg_int_boutique_services.png') top center no-repeat ;
+    margin:auto;
+    height: 160px;
+    width: 282px;
+    display: block;
+    margin-bottom: 10px;
+    padding-top: 40px;
+}
+
+#interface_produit{
+    width: 282px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#interface_produit_haut{
+    background: url('../img/bg_int_boutique_services.png') top center no-repeat ;
+    margin:auto;
+    height: 33px;
+    width: 282px;
+    display: block;
+    margin-bottom: 3px;
+}
+#interface_produit_middle{
+    background: url('../img/bg_int_boutique_produits_middle.png') top center repeat-y ;
+    margin:auto;
+    min-height: 50px;
+    padding-left: 10px;
+    width: 272px;
+    display: block;
+    margin-bottom: 2px;
+}
+
+#interface_produit_bottom{
+    background: url('../img/bg_int_boutique_produits_bottom.png') top center no-repeat ;
+    margin:auto;
+    height: 7px;
+    width: 282px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.lienProduit{
+    width: 262px;
+    min-height: 20px;
+    display: block;
+    margin-left:15px;
+}
+
+
+
+
+
+
+#blockRight{
+    margin:auto;
+    min-height: 930px;
+    width: 672px;
+    margin-left: 10px;
+    display: block;
+    margin-left:302px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#banniere{
+    margin:auto;
+    height: 175px;
+    width: 662px;
+    margin-top: 5px;
+    display: block;
+    -moz-box-shadow: inset 0 0 5px  #6c3b22;
+    -webkit-box-shadow: inset 0 0 5px #6c3b22;
+    box-shadow: inset 0 0 5px #6c3b22;
+}
+
+#boutique_rolkithan{
+    margin:auto;
+    width: 666px;
+    margin-top: 5px;
+    display: block;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+#boutique_rolkithan_top{
+    background: url('../img/bg_int_boutique_boutique_rolki_up.png') top center no-repeat ;
+    margin:auto;
+    height: 47px;
+    width: 666px;
+    display: block;
+}
+
+#boutique_rolkithan_middle{
+    background: url('../img/bg_int_boutique_boutique_rolk_middle.png') top center repeat-y ;
+    margin:auto;
+    min-height: 450px;
+    width: 646px;
+    display: block;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+#boutique_rolkithan_bottom{
+    background: url('../img/bg_int_boutique_boutique_rolki_bottom.png') top center no-repeat ;
+    margin:auto;
+    height: 6px;
+    width: 666px;
+    display: block;
+    margin-bottom: 3px;
+}
+
+
+#footer{
+    margin:auto;
+    margin-top: 10px;
+    background: url('../img/footer_boutique.jpg') top right no-repeat;
+    padding: 10px;
+    height: 243px;
+    width: 964px;
+    display: block;
+    float: left;
+}
+
+
+.containerArticle{
+    width: 190px;
+    height: 170px;
+    display: block;
+    float: left;
+    margin: 4px;
+    background: url('../img/boutique/containerArticle.jpg') top center no-repeat;
+    position: relative;
+}
+
+.cadreIcone{
+    position: absolute;
+    top: 14px;
+    left:62px;
+}
+
+.imgIcone{
+    position: absolute;
+    top: 18px;
+    left:66px;
+}
+
+.nomArticle{
+    width: 180px;
+    height: 30px;
+    display: block;
+    top: 66px;
+    padding: 5px;
+    text-align: center;
+    position: absolute;
+}
+
+.prixArticle{
+    width: 190px;
+    height: 30px;
+    display: block;
+    top: 108px;
+    text-align: center;
+    position: absolute;
+}
+
+.addArticle{
+    width: 160px;
+    height: 20px;
+    display: block;
+    top: 148px;
+    left: 10px;
+    text-align: left;
+    position: absolute;
+    color:white; 
+    font-size: 10px;
+    padding-left: 20px;
+    background: url('../img/boutique/add.png') top left no-repeat;
+}
+
+ #espaceDev{
+    padding-left: 22px;
+    margin-bottom:20px;
+    min-height: 201px;
+    width: 282px;
+    display: block;
+    float:right;
+}
+
+ #espaceDev #espaceDevUp{
+    background: url('../img/acrtualiteDev-dev.png') top center no-repeat;
+    margin-right:0px;
+    height: 34px;
+    width: 282px;
+    display: block;
+    float: left;
+}
+
+#espaceDev #espaceDevMiddle{
+    background: url('../img/tranparence.png') top center repeat;
+    min-height: 293px;
+    width: 275px;
+    display: block;
+    float: left;
+    border: solid 2px #1c0b04;
+    border-radius:0px 0 5px 5px;
+    -moz-border-radius:0px 0 5px 5px;
+    -webkit-border-radius:0px 0 5px 5px;
+    -moz-box-shadow: inset 0 0 5px  #1c0b04;
+    -webkit-box-shadow: inset 0 0 5px #1c0b04;
+    box-shadow: inset 0 0 5px #1c0b04;
+    padding: 5px;
+    color: #f3d59f;
+    font-weight: bold;
+}
+
+
+.headNews{
+    background: url('../img/headNews.png') top center no-repeat;
+    margin-right:0;
+    height: 34px;
+    font: normal 16px/1.2  "Trojan Pro", arial, sans-serif; font-weight: lighter; vertical-align: top;
+    width: 640px;
+    font-weight: bold;
+    text-shadow:0px 0px 4px #7a5530;
+    padding-left: 20px;
+    line-height: 34px;
+    font-size: 16px;
+    color: #f3d59f;
+    display: block;
+}
+
+ .middleNews{
+    
+    margin-right:0;
+    min-height: 270px;
+    font: normal 12px/1.2  "arial", arial, sans-serif; font-weight: lighter; vertical-align: top;
+    width: 610px;
+    font-weight: bold;
+    text-shadow:0px 0px 4px #7a5530;
+    margin: 15px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding: 10px;
+    font-size: 12px;
+    color: #f9dabb;
+    display: block;
+    background: #050301;
+    -moz-box-shadow: inset 0 0 5px  #1c0b04;
+    -webkit-box-shadow: inset 0 0 5px #1c0b04;
+    box-shadow: inset 0 0 5px #1c0b04;
+}
+
+ .footNews{
+    margin-left:-15px;
+    height: 24px;
+    font: normal 14px/1.2  "Trojan Pro", arial, sans-serif; font-weight: lighter; vertical-align: top;
+    width: 630px;
+    font-weight: bold;
+    text-shadow:0px 0px 4px #7a5530;
+    padding-left: 20px;
+    line-height: 34px;
+    font-size: 14px;
+    color: #f3d59f;
+    display: block;
+    
+}
+
+ .linkNews{
+    margin-right:15px;
+    font: normal 14px/1.2  "Trojan Pro", arial, sans-serif; font-weight: lighter; vertical-align: top;
+    font-weight: bold;
+    text-shadow:0px 0px 1px #7a5530;
+    padding-right: 20px;
+    line-height: 34px;
+    font-size: 14px;
+    color: #e87300;
+    display: block;
+    float: right;
+    opacity:1;
+    
+}
+
+.linkNews:hover{
+    opacity:0.9;
+    text-shadow:0px 0px 1px #ff9630;
+    text-decoration: underline;
+}
+
+
+ #espaceDev #espaceNavDevUp{
+    background: url('../img/menuNavDev.png') top center no-repeat;
+    margin-right:-1px;
+    height: 34px;
+    width: 282px;
+    display: block;
+    float: right;
+}
+
+#espaceDev #espaceNavDevMiddle{
+    background: url('../img/tranparence.png') top center repeat;
+    top: 33px;
+    left: 16px;
+    min-height: 103px;
+    width: 275px;
+    display: block;
+    float: right;
+    border: solid 2px #1c0b04;
+    border-radius:0px 0 5px 5px;
+    -moz-border-radius:0px 0 5px 5px;
+    -webkit-border-radius:0px 0 5px 5px;
+    -moz-box-shadow: inset 0 0 5px  #1c0b04;
+    -webkit-box-shadow: inset 0 0 5px #1c0b04;
+    box-shadow: inset 0 0 5px #1c0b04;
+    padding: 5px;
+    color: #f3d59f;
+    font-weight: bold;
+    
+}
+
+.linkNav{
+     background:  #0A0501;
+     border: #080301 1px solid;
+     margin-bottom: 1px;
+     line-height: 12px;
+     margin-left: 3px;
+     padding: 5px; 
+     width: 265px;
+     height: 15px;
+     display: block;
+     float: left;
+}
+
+.linkNav:hover{
+    background: #0f0802;
+}

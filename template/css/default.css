@@ -1,0 +1,1338 @@
+/* 
+    Document   : deafault
+    Created on : 8 janv. 2012, 22:57:13
+    Author     : Rexy
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+/*Début Généralités*/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+em, img, strong, dl, dt, dd, ol, ul, li, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; }
+ol, ul { list-style: none; }
+table, caption, tbody, tfoot, thead, tr, th, td {
+    border: none;
+}
+
+html, body, a { height: 100%; font: normal 13px/1.1  Arial, Helvetica, sans-serif; font-weight: lighter; vertical-align: top;}
+a { outline: none; text-decoration: none; color: #e87300; font-weight: lighter; }
+a:hover { outline: none; text-decoration: underline; color: #e87300 ; }
+p { margin: 0.5em 0 }
+textarea { overflow: auto; }
+
+legend{
+    color:#FFF;
+}
+
+
+fieldset{
+    margin-top: 10px;
+    color: #FFF;
+    padding:10px;
+    /* coins arrondis */
+    border: #967332 1px solid;
+    box-shadow:inner 0 0 1px #000;
+    border-radius:5px 5px 5px 5px;
+    -moz-border-radius:5px 5px 5px 5px;
+    -webkit-border-radius:5px 5px 5px 5px;
+}
+
+.erreurFormulaire{
+    background: #fed9d9 ;
+    margin: auto;
+    margin-top: 20px;
+    font-size:16px;
+    font-weight: bold;
+    width: 500px;
+    display: block;
+    padding: 10px;
+    color: red;
+    border: solid 2px darksalmon ;
+    text-align: center;
+    border-radius:5px 5px 5px 5px;
+    border-radius:3px 3px 3px 3px;
+    -moz-border-radius:3px 3px 3px 3px;
+    -webkit-border-radius:3px 3px 3px 3px;
+    opacity: 1;
+}
+
+
+.validFormulaire{
+    background: palegreen ;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size:14px;
+    font-weight: bold;
+    width: 320px;
+    display: block;
+    padding: 10px;
+    border: solid 2px greenyellow ;
+    text-align: center;
+    color: white;
+   list-style: circle;
+    text-shadow:0px 0px 0px #000;
+    border-radius:5px 5px 5px 5px;
+    border-radius:3px 3px 3px 3px;
+    -moz-border-radius:3px 3px 3px 3px;
+    -webkit-border-radius:3px 3px 3px 3px;
+    opacity: 1;
+}
+.champOrange{
+    margin: auto;
+    margin-top: 20px;
+    font-size:12px;
+    width: 400px;
+    display: block;
+    text-shadow:0px 0px 4px #000;
+    padding: 40px;
+    color: #FFF ;
+    border: solid 1px #e87300;
+    border-radius:5px 5px 5px 5px;
+    border-radius:3px 3px 3px 3px;
+    -moz-border-radius:3px 3px 3px 3px;
+    -webkit-border-radius:3px 3px 3px 3px;
+    background: url('../img/backnews.png') top center no-repeat;
+}
+
+.contentForme{
+    margin: auto;
+    margin-top: 20px;
+    font-size:11px;
+    width: 400px;
+    display: block;
+    text-shadow:0px 0px 4px #322920;
+    padding: 40px;
+    color: #f5e5d4;
+    padding-top: 10px;
+    border: solid 2px #322920;
+    border-radius:5px 5px 5px 5px;
+    border-right: none;
+    border-bottom: none;
+    border-radius:3px 3px 3px 3px;
+    -moz-border-radius:3px 3px 3px 3px;
+    -webkit-border-radius:3px 3px 3px 3px;
+    opacity: 0.8;
+background-image: linear-gradient(bottom, rgb(26,24,19) 22%, rgb(28,25,19) 48%, rgb(59,54,42) 76%);
+background-image: -o-linear-gradient(bottom, rgb(26,24,19) 22%, rgb(28,25,19) 48%, rgb(59,54,42) 76%);
+background-image: -moz-linear-gradient(bottom, rgb(26,24,19) 22%, rgb(28,25,19) 48%, rgb(59,54,42) 76%);
+background-image: -webkit-linear-gradient(bottom, rgb(26,24,19) 22%, rgb(28,25,19) 48%, rgb(59,54,42) 76%);
+background-image: -ms-linear-gradient(bottom, rgb(26,24,19) 22%, rgb(28,25,19) 48%, rgb(59,54,42) 76%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.22, rgb(26,24,19)),
+	color-stop(0.48, rgb(28,25,19)),
+	color-stop(0.76, rgb(59,54,42))
+);
+    box-shadow: 3px 3px #4f4637;
+}
+
+
+.nextStage{
+    width: 133px;
+    height: 33px;
+    display: block;
+    background: url('../img/nextStage.png') top center repeat;
+    border: none;
+    margin: auto;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.nextStage:hover{
+    opacity:1;
+}
+
+img{
+    display: block;
+    border:none;
+}
+
+
+/*Fin Généralités*/
+
+.clear{clear:both;}
+
+
+/*Début du Carrousel*/
+#caroussel{
+    margin: auto;
+    overflow:hidden;
+    height: 172px;
+    width: 660px;
+    display: block;
+    float: left;
+}
+#caroussel .slide{
+	
+	top:5px;
+	left:5px;
+	height:200px;
+	width: 927px;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+}
+
+#caroussel .titre{
+	height:25px;
+	width: 892px;
+	bottom: 10px;
+	left: 0;
+        margin-top:-30px;
+	font-size:small;
+	color:#FFF;
+        font-weight:bold;
+        text-shadow: #000 0px 0px 0px;
+	padding-left:35px;
+	line-height: 30px;
+}
+
+.navigation {
+	margin-top: -50px;
+	padding-left: 570px;
+        display: block;
+        min-height:25px;
+	width: 12px;
+        
+}
+
+.navigation span{
+	background:#322000;
+	color:#b51f00;
+        font-size: 0px;
+	padding: 5px 5px;
+	margin-right: 8px;
+	cursor: pointer;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	
+}
+
+.navigation span:hover, .navigation span.active{
+	background:#f39d00;
+	color:#f39d00;
+}
+/*Fin du Carrousel*/
+
+
+
+
+
+/*Début du body*/
+body{
+    background: url('../img/background.jpg') top center no-repeat #0a0504;
+    margin:auto;
+}
+
+#nav{
+    background: url('../img/header.png') top center no-repeat;
+    margin:auto;
+    height: 247px;
+    width: 984px;
+    display: block;
+    position: relative;
+}
+
+
+/*DEBUT DU MENU*/
+#nav #menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 45px;
+    width: 984px;
+    display: block;
+    padding-top: 150px;
+}
+#nav #menu a{
+    color: #fed17a;
+    font: normal 24px/1.2  "Trojan Pro", arial, sans-serif; font-weight: lighter; vertical-align: top;
+    font-size: 24px;
+    cursor: pointer;
+    text-shadow:0px 0px 2px #fff;
+}
+#nav #menu a:hover{
+    color: #ffe6b5;
+    
+}
+html body div#nav ul#menu li div.menu-conteneur-1 div.colonne-1 ul li a{
+    color: #e1c184;
+     font: normal 14px/1.1  arial, sans-serif; font-weight: lighter; vertical-align: top;
+    padding-left: 5px;
+    text-shadow:0px 0px 0px #fff;
+    font-size: 14px;
+    cursor: pointer; 
+}
+html body div#nav ul#menu li div.menu-conteneur-1 div.colonne-1 ul li:hover a{
+    color: #ffdc96;
+    text-shadow:0px 0px 2px #fff;
+    text-decoration: underline;
+}
+#menu{
+    list-style:none;
+
+}
+
+/* onglet ici */
+
+#menu li{
+    float:left;
+    display:block;
+    position:relative;
+    text-align:center;
+    padding:4px 9px;
+    margin:7px 30px 0 0;
+    border:none;
+}
+
+#menu li:hover{
+    padding:4px 9px;
+}
+
+
+/* conteneurs ici */
+
+.menu-conteneur-1,
+.menu-conteneur-2,
+.menu-conteneur-3,
+.menu-conteneur-4{
+    margin:0px auto;
+    float:left;
+    position:absolute;
+    left:-999em;
+    text-align:left;
+    padding:10px 5px;
+    border-top:none;
+    background: url('../img/sous_menu.png') bottom center no-repeat;
+    opacity: 0.8;
+}
+
+.menu-conteneur-1{
+    width:140px;
+}
+.menu-conteneur-2{
+    width:280px;
+}
+.menu-conteneur-3{
+    width:420px;
+}
+.menu-conteneur-4{
+    width:560px;
+}
+
+#menu li:hover .menu-conteneur-1,
+#menu li:hover .menu-conteneur-2,
+#menu li:hover .menu-conteneur-3,
+#menu li:hover .menu-conteneur-4{
+    top:auto;
+    left:-1px;
+}
+
+
+/* contenants ici */
+
+.colonne-1,
+.colonne-2,
+.colonne-3,
+.colonne-4{
+    display:inline;
+    float:left;
+    position:relative;
+    margin:0 5px;
+}
+
+.colonne-1{
+    width:150px;
+}
+.colonne-2{
+    width:260px;
+}
+.colonne-3{
+    width:390px;
+}
+.colonne-4{
+    width:520px;
+}
+
+/* menu droit */
+
+#menu .menu-droit{
+    float:right;
+    margin-right:0px;
+}
+
+#menu li .align-droit{
+    /* coins arrondis */
+    
+    border-radius:5px 0 5px 5px;
+    -moz-border-radius:5px 0 5px 5px;
+    -webkit-border-radius:5px 0 5px 5px;
+}
+
+#menu li:hover .align-droit{
+    left:auto;
+    right:-1px;
+    top:auto;
+}
+
+/* menu h2, h3, p, etc.... */
+
+#menu p,
+#menu h2,
+#menu h3,
+#menu ul li{
+    line-height:20px;
+    font-size:14px;
+    text-align:left;
+}
+
+#menu p{
+    line-height:18px;
+    margin-bottom:10px;
+}
+
+#menu h3{
+    font-size:11px;
+    margin:7px 0 14px 0;
+    padding-bottom:5px;
+    text-transform:uppercase;
+}
+
+
+#menu li ul{
+    list-style:none;
+    padding:0;
+    margin-bottom:12px;
+}
+
+#menu li ul li{
+    font-size:12px;
+    line-height:24px;
+    position:relative;
+    text-shadow:1px 1px 1px #fff;
+    padding:0;
+    margin:0;
+    float:none;
+    text-align:left;
+    width:130px;
+}
+
+#menu li ul li:hover{
+    border:none;
+    background:none;
+    padding:0;
+    margin:0;
+}
+
+/*Fin du menu*/
+/*Fin du body*/
+
+
+
+/*DEBUT MAIN CONTENT*/
+#mainContent{
+    background: #0a0501;
+    margin:auto;
+    min-height: 930px;
+    width: 984px;
+    display: block;
+    -moz-box-shadow: inset 0 0 5px  #6c3b22;
+    -webkit-box-shadow: inset 0 0 5px #6c3b22;
+    box-shadow: inset 0 0 5px #6c3b22;
+    padding-bottom: 20px;
+    
+}
+#contentUp{
+    margin:auto;
+    padding: 10px;
+    height: 161px;
+    width: 964px;
+    display: block;
+}
+
+
+
+/*DEBUT PARTIE GAUCHE*/
+#contentUp #contentLeft{
+    min-height: 571px;
+    width: 660px;
+    display: block;
+    float: left;
+}
+
+#contentUp #contentLeft #slide{
+
+}
+
+
+
+/*block news*/
+#contentUp #contentLeft #newsContent{
+    margin-top: 8px;
+    min-height: 600px;
+    width: 660px;
+    display: block;
+    float: left;
+}
+
+
+#contentUp #contentLeft #newsContent .imgNews{
+    background: url('../img/backImg.png') top center repeat;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    padding: 3px;
+    height: 138px;
+    width: 159px;
+    display: block;
+}
+#contentUp #contentLeft #newsContent .commentNews{
+    background: url('../img/comNews.png') top right no-repeat;
+    float: right;
+    color: #7a5530;
+    padding-right: 11px;
+    height: 17px;
+    width: 20px;
+    text-shadow:0px 0px 2px #7a5530;
+    display: block;
+    opacity:0.8;
+}
+
+#contentUp #contentLeft #newsContent .commentNews:hover{
+    opacity:1;
+    text-shadow:0px 0px 4px #7a5530;
+}
+
+#contentUp #contentLeft #newsContent .headNews{
+    background: url('../img/headNews.png') top center no-repeat;
+    margin-right:0;
+    height: 34px;
+    font: normal 16px/1.2  "Trojan Pro", arial, sans-serif; font-weight: lighter; vertical-align: top;
+    width: 640px;
+    font-weight: bold;
+    text-shadow:0px 0px 4px #7a5530;
+    padding-left: 20px;
+    line-height: 34px;
+    font-size: 16px;
+    color: #f3d59f;
+    display: block;
+}
+
+#contentUp #contentLeft #newsContent .middleNews{
+    
+    margin-right:0;
+    min-height: 270px;
+    font: normal 12px/1.2  "arial", arial, sans-serif; font-weight: lighter; vertical-align: top;
+    width: 610px;
+    font-weight: bold;
+    text-shadow:0px 0px 4px #7a5530;
+    margin: 15px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding: 10px;
+    font-size: 12px;
+    color: #f9dabb;
+    display: block;
+    background: #050301;
+    -moz-box-shadow: inset 0 0 5px  #1c0b04;
+    -webkit-box-shadow: inset 0 0 5px #1c0b04;
+    box-shadow: inset 0 0 5px #1c0b04;
+}
+
+#contentUp #contentLeft #newsContent .footNews{
+    margin-left:-15px;
+    height: 24px;
+    font: normal 14px/1.2  "Trojan Pro", arial, sans-serif; font-weight: lighter; vertical-align: top;
+    width: 630px;
+    font-weight: bold;
+    text-shadow:0px 0px 4px #7a5530;
+    padding-left: 20px;
+    line-height: 34px;
+    font-size: 14px;
+    color: #f3d59f;
+    display: block;
+    
+}
+
+#contentUp #contentLeft #newsContent .linkNews{
+    margin-right:15px;
+    font: normal 14px/1.2  "Trojan Pro", arial, sans-serif; font-weight: lighter; vertical-align: top;
+    font-weight: bold;
+    text-shadow:0px 0px 1px #7a5530;
+    padding-right: 20px;
+    line-height: 34px;
+    font-size: 14px;
+    color: #e87300;
+    display: block;
+    float: right;
+    opacity:1;
+    
+}
+
+#contentUp #contentLeft #newsContent .linkNews:hover{
+    opacity:0.9;
+    text-shadow:0px 0px 1px #ff9630;
+    text-decoration: underline;
+}
+
+
+/*FIN PARTIE GAUCHE*/
+
+
+/*DEBUT PARTIE DROITE*/
+
+
+#contentUp #contentRight{
+    margin-right:0;
+    min-height: 571px;
+    width: 304px;
+    display: block;
+    float: right;  
+}
+
+
+/*debut compte*/
+#contentUp #account{
+    margin-right:0;
+    height: 171px;
+    width: 304px;
+    display: block;
+    float: right;
+}
+
+#contentUp #account #accountUp{
+    background: url('../img/account.png') top center no-repeat;
+    margin-right:0;
+    height: 34px;
+    width: 304px;
+    display: block;
+    float: right;
+}
+
+#contentUp #account #accountMiddle{
+    position: relative;
+    background: url('../img/tranparence.png') top center repeat;
+    top: -2px;
+    left: -3px;
+    height: 133px;
+    width: 285px;
+    display: block;
+    float: right;
+    border: solid 2px #6c3b22;
+    border-radius:0px 0 5px 5px;
+    -moz-border-radius:0px 0 5px 5px;
+    -webkit-border-radius:0px 0 5px 5px;
+    -moz-box-shadow: inset 0 0 5px  #1c0b04;
+    -webkit-box-shadow: inset 0 0 5px #1c0b04;
+    box-shadow: inset 0 0 5px #1c0b04;
+}
+
+
+/*Debut formulaire de connexion*/
+#contentUp #account #accountMiddle form{
+    margin: auto;
+    width: 285px;
+    min-height: 30px;
+    display: block;
+}
+
+#contentUp #account #accountMiddle form .champ{
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 3px;
+    font-weight: bold;
+    text-shadow:0px 0px 2px #000;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    width: 200px;
+    height: 30px;
+    display: block;
+    background: #0e0701;
+    color: #c39640;
+    border: solid 2px #1c0b04;
+    border-radius:5px 5px 5px 5px;
+    -moz-border-radius:5px 5px 5px 5px;
+    -webkit-border-radius:5px 5px 5px 5px;
+    opacity: 0.8;
+}
+
+#contentUp #account #accountMiddle form .champ:hover{
+    opacity: 0.9;
+}
+
+#contentUp #account #accountMiddle form .champ:focus{
+    opacity: 0.7;
+    background: #0a0501;
+    font-size: 13px;
+    color: #967332;
+    
+}
+
+#contentUp #account #accountMiddle form #send{
+    width: 136px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    background: url('../img/connection.png') top center repeat;
+    top: 97px;
+    left: 3px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#contentUp #account #accountMiddle form #send:hover{
+     opacity: 1;
+}
+
+#contentUp #account #accountMiddle form #signMe{
+    width: 133px;
+    height: 31px;
+    display: block;
+    position: absolute;
+    background: url('../img/signMe.png') top center repeat;
+    top: 97px;
+    left: 143px;
+    border: none;
+    opacity: 0.7;
+}
+#contentUp #account #accountMiddle form #signMe:hover{
+     opacity: 1;
+}
+
+
+
+/*Debut etat du serveur*/
+#contentUp #status{
+    position: relative;
+    margin-top:10px;
+    height: 171px;
+    width: 304px;
+    display: block;
+    float:right;
+}
+
+#contentUp #status #statusUp{
+    position: absolute;
+    background: url('../img/status.png') top center no-repeat;
+    margin-right:0;
+    height: 34px;
+    width: 304px;
+    display: block;
+    float: right;
+}
+
+#contentUp #status #statusMiddle{
+    position: absolute;
+    background: url('../img/tranparence.png') top center repeat;
+    top: 33px;
+    left: 7px;
+    height: 133px;
+    width: 285px;
+    display: block;
+    float: right;
+    border: solid 2px #1c0b04;
+    border-radius:0px 0 5px 5px;
+    -moz-border-radius:0px 0 5px 5px;
+    -webkit-border-radius:0px 0 5px 5px;
+    -moz-box-shadow: inset 0 0 5px  #1c0b04;
+    -webkit-box-shadow: inset 0 0 5px #1c0b04;
+    box-shadow: inset 0 0 5px #1c0b04;
+}
+
+#contentUp #status #statusMiddle form{
+    margin: auto;
+    width: 285px;
+    min-height: 30px;
+    display: block;
+}
+
+#contentUp #status #statusMiddle form .champ{
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 3px;
+    font-weight: lighter;
+    text-shadow:0px 0px 2px #000;
+    text-align: center;
+    line-height: 15px;
+    font-size: 10px;
+    width: 200px;
+    height: 15px;
+    display: block;
+    background: #0e0701;
+    color: #e1c695;
+    border: solid 2px #1c0b04;
+    border-radius:5px 5px 5px 5px;
+    -moz-border-radius:5px 5px 5px 5px;
+    -webkit-border-radius:5px 5px 5px 5px;
+    -moz-box-shadow: inset 0 0 5px  #1c0b04;
+    -webkit-box-shadow: inset 0 0 5px #1c0b04;
+    box-shadow: inset 0 0 5px #1c0b04;
+    opacity: 0.8;
+}
+#contentUp #status #statusMiddle form .champ:hover{
+    opacity: 1;
+}
+
+#contentUp #status #statusMiddle .textStatut{
+    font-weight: bold;
+    margin-left: 30px;
+    text-shadow:0px 0px 2px #000;
+    line-height: 30px;
+    font-size: 14px;
+    color: #c39640;
+}
+
+
+/*Debut trailler*/
+
+#contentUp #trailer{
+    position: relative;
+    margin-top:10px;
+    height: 171px;
+    width: 304px;
+    display: block;
+    float:right;
+}
+
+#contentUp #trailer #trailerUp{
+    position: absolute;
+    background: url('../img/trailer.png') top center no-repeat;
+    margin-right:0;
+    height: 34px;
+    width: 304px;
+    display: block;
+    float: right;
+}
+
+#contentUp #trailer #trailerMiddle{
+    position: absolute;
+    background: url('../img/tranparence.png') top center repeat;
+    top: 33px;
+    left: 7px;
+    min-height: 133px;
+    width: 285px;
+    display: block;
+    float: right;
+    border: solid 2px #1c0b04;
+    border-radius:0px 0 5px 5px;
+    -moz-border-radius:0px 0 5px 5px;
+    -webkit-border-radius:0px 0 5px 5px;
+    -moz-box-shadow: inset 0 0 5px  #1c0b04;
+    -webkit-box-shadow: inset 0 0 5px #1c0b04;
+    box-shadow: inset 0 0 5px #1c0b04;
+}
+
+
+/*Debut trailler*/
+
+#contentUp #espaceDev{
+    position: relative;
+    margin-top:20px;
+    height: 171px;
+    width: 304px;
+    display: block;
+    float:right;
+}
+
+#contentUp #espaceDev #espaceDevUp{
+    position: absolute;
+    background: url('../img/acrtualiteDev.png') top center no-repeat;
+    margin-right:0;
+    height: 34px;
+    width: 304px;
+    display: block;
+    float: right;
+}
+
+#contentUp #espaceDev #espaceDevMiddle{
+    position: absolute;
+    background: url('../img/tranparence.png') top center repeat;
+    top: 33px;
+    left: 7px;
+    min-height: 293px;
+    width: 275px;
+    display: block;
+    float: right;
+    border: solid 2px #1c0b04;
+    border-radius:0px 0 5px 5px;
+    -moz-border-radius:0px 0 5px 5px;
+    -webkit-border-radius:0px 0 5px 5px;
+    -moz-box-shadow: inset 0 0 5px  #1c0b04;
+    -webkit-box-shadow: inset 0 0 5px #1c0b04;
+    box-shadow: inset 0 0 5px #1c0b04;
+    padding: 5px;
+    color: #f3d59f;
+    font-weight: bold;
+}
+/*FIN GAUCHE*/
+
+
+/*DEBUT FOOTER*/
+#footer{
+    position: relative;
+    background: url('../img/footer.jpg') top center no-repeat;
+    padding: 10px;
+    height: 390px;
+    width: 964px;
+    display: block;
+    margin:auto;
+    margin-top: 10px;
+}
+/*FIN FOOTER*/
+
+/***************************
+****************************
+CSS POUR DIFFERENTES PAGES
+****************************
+****************************/
+
+
+/*Inscription*/
+
+ form .labelInsc{
+    margin-top: 10px;
+    font-size: 12px;
+    width: 350px;
+    height: 20px;
+    display: block;
+    float: left;
+    color: #e1c184;
+     
+}
+
+ form .champInsc{
+    margin-top: 10px;
+    font-size: 14px;
+    border: 1px solid #1c0b04;
+    background: #7a5530;
+    font-weight: lighter;
+    text-shadow:0px 0px 2px #000;
+    text-align: center;
+    display: block;
+    float: right;
+    line-height: 20px;
+    width: 225px;
+    height: 20px;
+    color: #f3d59f;
+    border-radius:5px 5px 5px 5px;
+    -moz-border-radius:5px 5px 5px 5px;
+    -webkit-border-radius:5px 5px 5px 5px;    
+}
+
+
+
+ form .sendInsc{
+    width: 133px;
+    height: 31px;
+    display: block;
+    margin: auto;
+    margin-top:10px;
+    background: url('../img/signMe.png') top center repeat;
+    cursor: pointer;
+    border: none;
+    opacity: 0.7;
+}
+form .sendInsc:hover{
+     opacity: 1;
+}
+/*Page de top-Votes*/
+
+.voteTop{
+    font-weight: lighter;
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+    color: #f5e5d4 ;
+    font-weight: bold;
+    color: #f3d59f;
+    font-size: 12px;
+  
+}
+
+.topVoteLigne{
+    background-image: linear-gradient(bottom, rgb(176,112,33) 12%, rgb(79,45,20) 41%, rgb(153,113,32) 91%);
+    background-image: -o-linear-gradient(bottom, rgb(176,112,33) 12%, rgb(79,45,20) 41%, rgb(153,113,32) 91%);
+    background-image: -moz-linear-gradient(bottom, rgb(176,112,33) 12%, rgb(79,45,20) 41%, rgb(153,113,32) 91%);
+    background-image: -webkit-linear-gradient(bottom, rgb(176,112,33) 12%, rgb(79,45,20) 41%, rgb(153,113,32) 91%);
+    background-image: -ms-linear-gradient(bottom, rgb(176,112,33) 12%, rgb(79,45,20) 41%, rgb(153,113,32) 91%);
+
+    background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.12, rgb(176,112,33)),
+	color-stop(0.41, rgb(79,45,20)),
+	color-stop(0.91, rgb(153,113,32))
+);
+}
+
+.topVoteLigne:hover{
+    color: #FFF;
+    cursor: pointer;
+    background-image: linear-gradient(bottom, rgb(176,124,33) 31%, rgb(194,194,113) 70%, rgb(214,175,97) 79%);
+    background-image: -o-linear-gradient(bottom, rgb(176,124,33) 31%, rgb(194,194,113) 70%, rgb(214,175,97) 79%);
+    background-image: -moz-linear-gradient(bottom, rgb(176,124,33) 31%, rgb(194,194,113) 70%, rgb(214,175,97) 79%);
+    background-image: -webkit-linear-gradient(bottom, rgb(176,124,33) 31%, rgb(194,194,113) 70%, rgb(214,175,97) 79%);
+    background-image: -ms-linear-gradient(bottom, rgb(176,124,33) 31%, rgb(194,194,113) 70%, rgb(214,175,97) 79%);
+
+    background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.31, rgb(176,124,33)),
+	color-stop(0.7, rgb(194,194,113)),
+	color-stop(0.79, rgb(214,175,97))
+);
+}
+
+/*Menu de connection*/
+#connexion form{
+    margin: auto;
+    width: 385px;
+    min-height: 30px;
+    display: block;
+}
+
+#connexion form .champ{
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 3px;
+    font-weight: bold;
+    text-shadow:0px 0px 2px #000;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    width: 200px;
+    height: 30px;
+    display: block;
+    background: #0e0701;
+    color: #FFF ;
+    border: solid 1px #FFF;
+    border-radius:5px 5px 5px 5px;
+    -moz-border-radius:5px 5px 5px 5px;
+    -webkit-border-radius:5px 5px 5px 5px;
+    opacity: 1;
+}
+
+#connexion form .champ:hover{
+    opacity: 0.9;
+}
+
+#connexion form .champ:focus{
+    opacity: 0.7;
+    background: #0a0501;
+    font-size: 13px;
+    color: #967332;
+    
+}
+
+#connexion form #send{
+    width: 136px;
+    height: 30px;
+    display: block;
+    background: url('../img/connection.png') top center repeat;
+    border: none;
+    cursor: pointer;
+    opacity: 0.7;
+    float: left;
+    margin-right: 50px;
+}
+
+#connexion form #send:hover{
+     opacity: 1;
+}
+
+#connexion form #signMe{
+    width: 133px;
+    height: 31px;
+    display: block;
+    background: url('../img/signMe.png') top center repeat;
+    border: none;
+    opacity: 0.7;
+        float: right;
+}
+#connexion form #signMe:hover{
+     opacity: 1;
+}
+
+/*Pannel de zone membre*/
+
+.linksMembre{
+    font-weight: bold;
+    text-shadow:0px 0px 1px #7a5530;
+    font-size: 11px;
+    color: darkgoldenrod;
+    text-transform: capitalize;
+    opacity:0.8;
+    width: 275px;
+    padding: 5px;
+    margin-left: -10px;
+    margin-top: -10px;
+    display: block;
+    
+}
+
+.bouton{
+    font-size:11px;
+    margin-bottom: 1px;
+    margin: auto;
+    padding: 1px;
+    color: #FFF;
+    display: block;
+    height: 14px;
+    width: 250px;
+    text-align: center;
+    border: solid 2px #322920;
+    border-radius:5px 5px 5px 5px;
+    border-left: none;
+    font-weight: bold;
+    border-radius:3px 3px 3px 3px;
+    -moz-border-radius:3px 3px 3px 3px;
+    -webkit-border-radius:3px 3px 3px 3px;
+    opacity: 1;
+background-image: linear-gradient(bottom, rgb(20,13,11) 4%, rgb(117,72,8) 50%, rgb(36,24,2) 100%);
+background-image: -o-linear-gradient(bottom, rgb(20,13,11) 4%, rgb(117,72,8) 50%, rgb(36,24,2) 100%);
+background-image: -moz-linear-gradient(bottom, rgb(20,13,11) 4%, rgb(117,72,8) 50%, rgb(36,24,2) 100%);
+background-image: -webkit-linear-gradient(bottom, rgb(20,13,11) 4%, rgb(117,72,8) 50%, rgb(36,24,2) 100%);
+background-image: -ms-linear-gradient(bottom, rgb(20,13,11) 4%, rgb(117,72,8) 50%, rgb(36,24,2) 100%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.04, rgb(20,13,11)),
+	color-stop(0.5, rgb(117,72,8)),
+	color-stop(1, rgb(36,24,2))
+);
+}
+
+
+.bouton:hover{
+    opacity: 1;
+    text-decoration: none;
+background-image: linear-gradient(bottom, rgb(20,13,11) 4%, rgb(56,36,8) 50%, rgb(36,24,2) 100%);
+background-image: -o-linear-gradient(bottom, rgb(20,13,11) 4%, rgb(56,36,8) 50%, rgb(36,24,2) 100%);
+background-image: -moz-linear-gradient(bottom, rgb(20,13,11) 4%, rgb(56,36,8) 50%, rgb(36,24,2) 100%);
+background-image: -webkit-linear-gradient(bottom, rgb(20,13,11) 4%, rgb(56,36,8) 50%, rgb(36,24,2) 100%);
+background-image: -ms-linear-gradient(bottom, rgb(20,13,11) 4%, rgb(56,36,8) 50%, rgb(36,24,2) 100%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.04, rgb(20,13,11)),
+	color-stop(0.5, rgb(56,36,8)),
+	color-stop(1, rgb(36,24,2))
+);
+    
+}
+.menuMembre{
+    font-size:12px;
+    height: 118px;
+    width: 265px;
+    display: block;
+    text-shadow:0px 0px 4px #322920;
+    padding: 10px;
+    color: #f5e5d4;
+    padding-top: 5px;
+    opacity: 1;
+}
+.simpleContent{
+    font-size:13px;
+    margin-top: -5px;
+    padding: 5px;
+    display: block;
+    border: solid 2px #322920;
+    border-radius:5px 5px 5px 5px;
+    border-left: none;
+    font-weight: bold;
+    border-radius:3px 3px 3px 3px;
+    -moz-border-radius:3px 3px 3px 3px;
+    -webkit-border-radius:3px 3px 3px 3px;
+    -moz-box-shadow: inset 0 0 5px  #6c3b22;
+    -webkit-box-shadow: inset 0 0 5px #6c3b22;
+    box-shadow: inset 0 0 5px #6c3b22;
+    opacity: 1;
+}
+
+/*Commentaires de news*/
+
+.comment{
+    margin: auto;
+    margin-bottom: 15px;
+    min-height: 30px;
+    width: 550px;
+    display: block;
+    font-size:12px;
+    padding: 5px;
+    background: #0e0701;
+    color: #FFF;
+    border: solid 2px #7a5530;
+    border-radius:5px 5px 5px 5px;
+    font-weight: bold;
+    border-radius:7px 7px 7px 7px;
+    -moz-border-radius:7px 7px 7px 7px;
+    -webkit-border-radius:7px 7px 7px 7px;
+    opacity: 1;
+}
+
+.headcomment{
+    color: orange;
+    font-size:14px;
+}
+
+.postComm{
+    margin:auto;
+    width: 500px;
+    min-height: 50px;
+    display: block;
+}
+.champ_message{
+    margin: auto;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    padding: 5px;
+    margin-top: 5px;
+    display: block;
+    width: 450px;
+    min-height: 50px;
+    font-weight: bold;
+    color: #878787;
+    border: 1px solid #7a5530;
+    border-radius:5px 5px 5px 5px;
+    -moz-border-radius:5px 5px 5px 5px;
+    -webkit-border-radius:5px 5px 5px 5px;
+    box-shadow:inset 0px 0px 1px #000;
+    -moz-box-shadow:inset 0px 0px 1px #000;
+    -webkit-box-shadow:inset 0px 0px 1px #000;
+}
+
+.champ_message:focus{
+    color:#444;
+    background: #fcfcfc;
+    box-shadow:inset 0px 0px 1px #000;
+    -moz-box-shadow:inset 0px 0px 1px #000;
+    -webkit-box-shadow:inset 0px 0px 1px #000;
+}
+
+.send{
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    width: 300px;
+    height: 30px;
+    display: block;
+    font-weight: bold;
+    color:  #4f4637;
+    border: 1px solid #4f4637;
+    border-radius:5px 5px 5px 5px;
+    -moz-border-radius:5px 5px 5px 5px;
+    -webkit-border-radius:5px 5px 5px 5px;
+    box-shadow:inset 0px 0px 1px #000;
+    -moz-box-shadow:inset 0px 0px 1px #000;
+    -webkit-box-shadow:inset 0px 0px 1px #000;
+    background: #FFF;
+    cursor: pointer;
+}
+
+.send:hover{
+    box-shadow:inset 0px 0px 1px #000;
+    -moz-box-shadow:inset 0px 0px 1px #000;
+    -webkit-box-shadow:inset 0px 0px 1px #000;
+    background: #dfdfdf;
+    color:#444;
+}
+
+.bouttonAchatAmelioration{
+    margin: auto;
+    margin-top: 5px;
+    margin-right: 0px;
+    margin-bottom: 15px;
+    width: 200px;
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+    display: block;
+    font-weight: bold;
+    color:  #FFF;
+    border: 1px solid #c39640;
+    border-right: none;
+    border-radius:5px 0 0 5px;
+    -moz-border-radius:5px 0 0 5px;
+    -webkit-border-radius: 5px 0 0 5px;
+    box-shadow:inset 0px 0px 1px #000;
+    -moz-box-shadow:inset 0px 0px 1px #000;
+    -webkit-box-shadow:inset 0px 0px 1px #000;
+    background: #7a5530;
+    float: left;
+    cursor: pointer;
+}
+
+.bouttonAchatAmelioration:hover{
+    box-shadow:inset 0px 0px 1px #000;
+    -moz-box-shadow:inset 0px 0px 1px #000;
+    -webkit-box-shadow:inset 0px 0px 1px #000;
+    background: #2b1105 ;
+    color: #e1c695;
+    text-decoration: none;
+}
+
+.prix{
+    margin: auto;
+    margin-top: 5px;
+    margin-left: 0px;
+    margin-bottom: 15px;
+    width: 100px;
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+    display: block;
+    font-weight: bold;
+    color:  #FFF;
+    border: 1px solid #c39640;
+    border-left: none;
+    border-radius:0 5px 5px 0;
+    -moz-border-radius:0 5px 5px 0;
+    -webkit-border-radius:0 5px 5px 0;
+    box-shadow:inset 0px 0px 1px #000;
+    -moz-box-shadow:inset 0px 0px 1px #000;
+    -webkit-box-shadow:inset 0px 0px 1px #000;
+    background: #967332;
+    float: left;
+}
+
+
+#recupPayd{
+    margin-top: 20px;
+    cursor: pointer;
+    opacity:0.8;
+    background: url('../img/recupPayd.png') top center no-repeat;
+    margin-right:0;
+    height: 73px;
+    width: 600px;
+    display: block;
+    float: right;
+}
+
+#pageFB{
+    margin-top: 20px;
+    cursor: pointer;
+    opacity:0.8;
+    background: url('../img/linkFB.png') top center no-repeat;
+    margin-right:0;
+    height: 73px;
+    width: 600px;
+    display: block;
+    float: right;
+}
