@@ -33,25 +33,7 @@
         <span style="color: orange;font-weight: bold; padding-left: 5px;" >Progression total</span>
         <div  id="serveur"></div></a><hr style="margin-bottom: 10px; color:#945522; border: #945522;"/>
 </fieldset>
-<fieldset style="background:  #0A0501; border: #080301 1px solid; margin-bottom: 5px; margin-left: 3px; padding: 1px; ">   
-<legend>Les rates</legend>
 
-        <p  style="font-size:11px; text-shadow:0px 0px 3px #000;">
-          Rate XP quetes: X4 <br />
-          Rate XP mobs: X4 <br />
-          Rate XP exploration: X4 <br /><br />
-
-          Rate Or: X3  <br />
-          Rate métiers: X1  <br />
-
-         <font color="white">Rate drop normal:</font> X3  <br />
-         <font color="#1EFF00 "> Rate drop inhabituel:</font> X3  <br />
-         <font color="#0070DD ">Rate drop rare:</font> X1  <br />
-         <font color="#A335EE "> Rate drop épique:</font> X1 <br />
-         <font color="#FF8000 "> Rate drop légendaire:</font> X1 <br />
-        </p>
-
-</fieldset>
 <fieldset style="background:  #0A0501; border: #080301 1px solid; margin-bottom: 5px; margin-left: 3px; padding: 1px; ">   
 <legend>Statistiques du niveau de débogue</legend>
 <?php 
@@ -131,5 +113,25 @@ $prCnt= CalculPourcentAvance($DB, 'categorie', $d->id);?>
     <div  id="c<?php echo $d->id;?>"></div></a><hr style="margin-bottom: 10px; color:#945522; border: #945522;;"/>
    
 <?php }} ?>
+
+</fieldset>
+
+<fieldset style="background:  #0A0501; border: #080301 1px solid; margin-bottom: 5px; margin-left: 3px; padding: 1px; ">   
+<legend>Les rates</legend>
+
+        <p  style="font-size:11px; text-shadow:0px 0px 3px #000;">
+          Rate XP quetes: X4 <br />
+          Rate XP mobs: X4 <br />
+          Rate XP exploration: X4 <br /><br />
+
+          Rate Or: X3  <br />
+          Rate métiers: X1  <br />
+
+         <font color="white">Rate drop normal:</font> X3  <br />
+         <font color="#1EFF00 "> Rate drop inhabituel:</font> X3  <br />
+         <font color="#0070DD ">Rate drop rare:</font> X1  <br />
+         <font color="#A335EE "> Rate drop épique:</font> X1 <br />
+         <font color="#FF8000 "> Rate drop légendaire:</font> X1 <br />
+        </p>
 
 </fieldset>
