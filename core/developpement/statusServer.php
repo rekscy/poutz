@@ -1,8 +1,3 @@
-<?php    
-    if(!verifPermissionAccess($REALM,$_SESSION['id'],0) && !isset($_SESSION['Administrateur'])){
-       header('Location: index.php');
-    }
-?>
 <div id="projetEnCours">
     <p style =" font-size: 40px; color: #ffebb6;"> DEVELOPPEMENT<span style =" font-size: 16px; color: #c8c8c8;">AVANCEE DU ROYAUME ZIRCON</span></p><hr style="margin-top: -32px;" />
 </div>
