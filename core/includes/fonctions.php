@@ -2649,6 +2649,44 @@ function getPercentColor($value){
     }
 }
 
+function calculPercent($valueTot,$valueCourant){
+        
+    return ceil(($valueCourant/$valueTot)*100);
+    
+}
+
+function CalculPourcentAvance($DB, $categorie,$value){
+    
+	$sql = "SELECT nbrTotalAction, nbrActionTermine FROM `sous-taches` WHERE `$categorie` = '$value'";
+	$req = $DB->prepare($sql);
+	$req->execute();
+	
+	$perentTotal = 1;
+        
+	$tab = $req->fetchAll(PDO::FETCH_ASSOC);
+        $nbrResult = count($tab);
+        
+        
+	if ($nbrResult > 0 )
+	{
+            
+            foreach ($tab as $d) {
+                $valTot=$d['nbrTotalAction'];
+                $valCourt=$d['nbrActionTermine'];
+                
+                $perentTotal+= calculPercent($valTot, $valCourt);
+            }
+                
+	}
+	else{
+	$nbrResult=1;
+	$perentTotal = 1;
+	}
+	unset($req);
+	unset($sql);
+	return ceil($perentTotal/$nbrResult);
+}
+
 
 
 ?>

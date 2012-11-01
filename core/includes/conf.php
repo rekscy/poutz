@@ -8,7 +8,7 @@ $port_db = '3306';
 
 
 // Affiche les erreurs
-// ini_set('display_errors', 1);
+ ini_set('display_errors', 1);
 
 //Informations distantes de serveur jeux
 $host_db = 'localhost';
