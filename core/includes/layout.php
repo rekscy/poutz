@@ -68,10 +68,6 @@ while ($d = $req->fetch(PDO::FETCH_OBJ)): ?>
                             <p class="simpleContent">Bienvenu <?php echo $_SESSION['name']; ?>! <br/>
                                 Vous avez actuellement <?php echo getShopPoints($_SESSION['id'], $DB); ?> points R</p>
                                 <div class="linksMembre">
-
-                                    <?php if(isset($_SESSION['MaitreJeu'])): ?>
-                                    <a class="bouton" style =" color: greenyellow;" href="index.php?page=admin">Administration</a> 
-                                    <?php endif; ?>
                                     <a class="bouton" href="index.php?page=membre">Espace membre</a> 
                                     <a class="bouton" href="index.php?page=achatPoints">Achat de points</a> 
                                     <a class="bouton"href="index.php?page=votes">Voter</a> 
