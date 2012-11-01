@@ -58,9 +58,6 @@ function titre_page($page) {
             break;      
         
 		//Pages gestionnaire de dev
-        case 'bt':
-            return 'dev';
-            break;
         case 'gestTickets':
             return 'dev';
             break;
@@ -2661,7 +2658,7 @@ function CalculPourcentAvance($DB, $categorie,$value){
 	$req = $DB->prepare($sql);
 	$req->execute();
 	
-	$perentTotal = 1;
+	$perentTotal = 0;
         
 	$tab = $req->fetchAll(PDO::FETCH_ASSOC);
         $nbrResult = count($tab);
@@ -2680,13 +2677,303 @@ function CalculPourcentAvance($DB, $categorie,$value){
 	}
 	else{
 	$nbrResult=1;
-	$perentTotal = 1;
+	$perentTotal = 0;
 	}
 	unset($req);
 	unset($sql);
 	return ceil($perentTotal/$nbrResult);
 }
 
+function  ajouterTache($DB,$titre,$cat){
+    
+    $gmId=$_SESSION['id'];
+    
+    switch ($cat){
+        case 1:
+            
+            $titreCategorie='Zone';
+            
+            $sql = "INSERT INTO `taches` (`tache`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '1')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION CATEGORIE
+
+            $idTache= $DB->lastInsertId(); //RECUPERERE ID TACHE
+            
+            //Création des sous-taches
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Quêtes fonctionnelles', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+            
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Vendeurs', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+            
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Maitres de classe', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+            
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Spawn des pnj', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+            
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Spawns des plantes', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+             
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Spawns des minerais', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+            
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Donneurs de quêtes ', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+            
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Pêche', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+            
+            break;
+        case 2:
+            $titreCategorie='Instance';
+            
+            $sql = "INSERT INTO `taches` (`tache`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '1')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION CATEGORIE
+
+            $idTache= $DB->lastInsertId(); //RECUPERERE ID TACHE
+            
+            //Création des sous-taches
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Spawn des Trash', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+             
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Spawn des Boss', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+             
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Script des Trash', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+             
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Script des Boss', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+             
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Script des trash', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+             
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Loots des Boss', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+             
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Loots des Trash', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+             
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Dégats & Immunisations', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+             
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Portes & Coffres', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+            break;
+        case 3:
+            $titreCategorie='Raid';
+            
+            $sql = "INSERT INTO `taches` (`tache`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '1')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION CATEGORIE
+
+            $idTache= $DB->lastInsertId(); //RECUPERERE ID TACHE
+            
+            //Création des sous-taches
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Spawn des Trash', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+             
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Spawn des Boss', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+             
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Script des Trash', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+             
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Script des Boss', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+             
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Script des trash', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+             
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Loots des Boss', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+             
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Loots des Trash', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+             
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Dégats & Immunisations', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+             
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Portes & Coffres', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+            break;
+
+        case 4:
+            $titreCategorie='Réputation';
+            
+            $sql = "INSERT INTO `taches` (`tache`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '1')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION CATEGORIE
+
+            $idTache= $DB->lastInsertId(); //RECUPERERE ID TACHE
+            
+            //Création des sous-taches
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Quêtes', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION SOUS-CATEGORIE
+             
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Tabards', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION SOUS-CATEGORIE
+             
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Insignes de réputation', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION SOUS-CATEGORIE
+            
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Vendeurs', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION SOUS-CATEGORIE
+            break;
+        
+        case 5:
+            $titreCategorie='Sorts';
+            
+            $sql = "INSERT INTO `taches` (`tache`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '1')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION CATEGORIE
+
+            $idTache= $DB->lastInsertId(); //RECUPERERE ID TACHE
+            
+            //Création des sous-taches
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Spécialisation 1', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION SOUS-CATEGORIE
+            
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Spécialisation 2', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION SOUS-CATEGORIE
+            
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Spécialisation 3', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION SOUS-CATEGORIE
+            
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Glyphes', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION SOUS-CATEGORIE
+
+            break;
+
+        case 6:
+            $titreCategorie='Talents';
+            
+            $sql = "INSERT INTO `taches` (`tache`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '1')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION CATEGORIE
+
+            $idTache= $DB->lastInsertId(); //RECUPERERE ID TACHE
+            
+            //Création des sous-taches
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Spécialisation 1', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION SOUS-CATEGORIE
+            
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Spécialisation 2', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION SOUS-CATEGORIE
+            
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Spécialisation 3', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION SOUS-CATEGORIE
+
+            break;
+        
+        case 7:
+            $titreCategorie='Site Web';
+
+            $sql = "INSERT INTO `taches` (`tache`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '1')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION CATEGORIE
+
+            $idTache= $DB->lastInsertId(); //RECUPERERE ID TACHE
+            
+            //Création des sous-taches
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Site', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION SOUS-CATEGORIE
+            
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Boutique', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION SOUS-CATEGORIE
+            
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+            $req->execute(); //INSERTION SOUS-CATEGORIE
+            
+            break;
+        
+    default :
+        exit();
+        break;
+    }
+}
 
 
 ?>

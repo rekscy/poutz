@@ -7,6 +7,11 @@
                     <ul>
                         <li class=inter-calaire>
                         </li>
+                        <?php if(isset($_SESSION['MaitreJeu'])): ?>
+                        <li>
+                            <a style =" color: greenyellow;" href="index.php?page=admin">Administration</a> 
+                        </li>
+                        <?php endif; ?>
                         <li>
                             <a href="index.php">Actualités</a>
                         </li>
@@ -19,7 +24,7 @@
                         }
                         ?>
                         <li>
-                            <a href="index.php?page=informations">Informations</a>
+                            <a href="index.php?page=statusServer">Informations</a>
                         </li>
                         <li>
                             <a href="index.php?page=rejoindre">Nous rejoindre</a>

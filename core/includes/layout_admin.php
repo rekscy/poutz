@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Administration Asgard-Servers</title>
+        <title>Administration Rolkithan-Server</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="Description" content="Serveur privé francophone du jeu World of Wracraft: Cataclysm, en 4.1.0 avec un émulateur très performant. Propulsé par la team Old-Scool.">
         <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -9,6 +9,10 @@
         <meta name="Version" content="1.1">
         <link href="template/css/adminStyle.css" rel="stylesheet">
         <link href="template/zoombox/zoombox.css" rel="stylesheet" type="text/css" media="screen" />
+        <script src="template/js/jquery/jquery.js" type="text/javascript"></script>
+        <script src="template/js/jquery/jquery-ui-1.9.1.custom.js" type="text/javascript"></script>
+        <link href="template/css/jquery/jquery-ui-1.9.1.custom.css" rel="stylesheet">
+        <link href="template/img/icone.png" type="image/png" rel="icon"/>
     </head>
     <body>
         <div id="content">
@@ -25,16 +29,16 @@
                     <div class="clear"></div>
                 </div>
                 <div id="submenu">
-                    <p id="Serveur" class="liens"><a href="#">Gestion du Top-vote</a> | <a href="#">Liste des Uptimes</a></p>
+                    <p id="Serveur" class="liens"><a href="index.php?page=admin">Administration</a> | <a href="#">Liste des Uptimes</a></p>
                     <p id="Organisation" class="liens">
 						<?php if(isset($_SESSION['Administrateur'])): ?><a href="index.php?page=gestProjets">Gestion des projets</a><?php endif; ?> 
-						<a href="#">Liste de tâches a faire</a> | 
+						<a href="index.php?page=gestTaches">Ajouter une tache</a> | 
 						<a href="#">Faire une demande</a>
 					</p>
                     <p id="Communication" class="liens"> 
 						<?php if(isset($_SESSION['Administrateur'])): ?><a href="index.php?page=gestNews">Gestionnaire des news</a><?php endif; ?> 
 						<?php if(isset($_SESSION['Administrateur'])): ?><a href="index.php?page=gestNewsLetter">Créer news Letter</a><?php endif; ?> 
-						<?php if(isset($_SESSION['Administrateur'])): ?><a href="index.php?page=gestDebugDev">Gestionnaire des débugs</a><?php endif; ?>
+						<?php if(isset($_SESSION['Administrateur'])): ?><a href="index.php?page=gestDebugDev">Actualités Developpement</a><?php endif; ?>
                     </p>
                     <p id="Statistiques" class="liens"><a href="#">Statistiques des joueurs</a> | <a href="#">Statistiques des comptes</a>| <a href="#">Statistiques des Votes</a></p>
                     <p id="Outils" class="liens"><a href="index.php?page=gestRecups">Gestion des Récupérations</a> | <a href="#">Liste des Uptimes</a></p>
@@ -51,7 +55,6 @@
         </div>
             </div>
     </body>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="template/zoombox/zoombox.js"></script>
         <script type="text/javascript">jQuery(function($){    $('a.zoombox').zoombox();    });</script>
         <script>
