@@ -8,31 +8,7 @@
     <p style =" font-size: 40px; color: #ffebb6;"> ADMINISTRATION<span style =" font-size: 16px; color: #c8c8c8;">AVANCEE SERVEUR</span></p>
 </div>
 
-<?php
-if((isset($_GET['projetsAdd'])) &&($_GET['projetsAdd']==2)) { 
-	if(isset($_POST['projet'])){
-		$titre=$_POST['projet'];
-
-		$sql = "INSERT INTO `projets` ( `projet`, `date`, `gmId`,`familleId`) VALUES ( :projet, now(), :idUser, :idFamille)";
-		$req = $DB->prepare($sql);
-		$req->execute(array(
-			'projet' => ucfirst($_POST['projet']),
-			'idUser' => $_SESSION['id'],
-			'idFamille' => $_POST['FamilleProjets']
-		));
-		unset ($_POST['projet']);
-    }
-?>
-<fieldset>   
-        <legend> Projet crée avec succés</legend>
-        <br/>
-        <h2 style="color:green;">Félicitations, opération réussie!! </h2>
-        <br/> <br/>
-        <a href="index.php?page=admin">Revenir à la gestion des projets</a>
-</fieldset>
-<?php 
-}
-if((isset($_GET['projetsAdd'])) &&($_GET['projetsAdd']==1)){ ?>
+<?php if((isset($_GET['projetsAdd'])) &&($_GET['projetsAdd']==1)){ ?>
 <form action="index.php?page=admin&&projetsAdd=2" method="post">
     <fieldset>   
     <legend> Ajout d'un projet</legend>
@@ -52,6 +28,8 @@ if((isset($_GET['projetsAdd'])) &&($_GET['projetsAdd']==1)){ ?>
     <legend> Ajouter un projet</legend>
     <a href="index.php?page=gestProjets&&projetsAdd=1">Cliquez ici pour ajouter un projet...</a>
 </fieldset>
+<?php }?>
+
 <fieldset>
     
 <!--AVANCEE SERVEUR-->
@@ -200,7 +178,7 @@ $prCnt= CalculPourcentAvance($DB, 'categorie', $d->id);?>
     <a style="color: orange; padding-left: 5px;" href="index.php?page=admin&&categorie=<?php echo $d->id;?>"><?php echo $d->categorie;?>
     <div  id="c<?php echo $d->id;?>"></div></a><hr style="margin-bottom: 10px; color:#945522; border: #945522;;"/>
    
-<?php }} ?>
+<?php } ?>
 
 </fieldset>
 
