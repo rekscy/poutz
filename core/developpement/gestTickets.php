@@ -148,7 +148,7 @@ if((isset($_GET['ticketsAdd'])) &&($_GET['ticketsAdd']==2)) {
 		$idticket = $d->idtickets;
 		
 		// création du premier commentaire
-		$sql = "INSERT INTO `ticketscommentaires` ( `idtickets`, `date`, `proprioId`,`commentaire`) VALUES ( :tickets, now(), :idUser, :commentaire)";
+		$sql = "INSERT INTO `ticketscommentaires` ( `idtickets`, `datecommentaire`, `proprioId`,`commentaire`) VALUES ( :tickets, now(), :idUser, :commentaire)";
 		$req = $DB->prepare($sql);
 		$req->execute(array(
 			'tickets' => $idticket,
