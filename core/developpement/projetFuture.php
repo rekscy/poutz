@@ -14,13 +14,13 @@
 			<th width='10'><strong></strong></th>
 			<th width='240'><strong>Projet</strong></th>
 			<th width='80'><strong>Propriétaire</strong></th>
-			<th width='140'><strong>Crée le</strong></th>
+			<th width='80'><strong>Crée le</strong></th>
 			<th width='140'><strong>Famille</strong></th>
-			<th width='80'><strong>Débute le:</strong></th>
+			<th width='80'><strong>Débute le</strong></th>
 		</thead>
 <?php
                 
-		$sql= "SELECT * FROM `projets` ORDER BY `id` DESC LIMIT 0, 50" ;
+		$sql= "SELECT * FROM `projets` WHERE idxstatutprojet = 2 ORDER BY `id` DESC LIMIT 0, 50" ;
 		$req = $DB->prepare($sql);
 		$req->execute();
 		
@@ -32,9 +32,9 @@
 				<td> <?php 
 					echo getMainPerso($CHARS, $DB, $d->gmId);
 					?></td>
-				<td> <?php echo convertTime($d->date); ?></td>
+				<td> <?php echo convertTime_court($d->date); ?></td>
 				<td> <?php echo recupobjetliste($DB,$d->familleId,'famille'); ?></td>
-				<td> </td>
+				<td> <?php echo convertTime_court($d->datedebut); ?></td>
 			</tr>
 		<?php  
 		} 

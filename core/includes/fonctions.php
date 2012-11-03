@@ -185,7 +185,12 @@ $jour = $elementsdate[6] ;
 
 echo $jour. getMoth($mois).$annee;
 }
-
+function convertTime_court($time){
+	$jj = substr($time,8,2);
+	$mm = substr($time,5,2);
+	$aa = substr($time,0,4);
+	echo $jj.'/'.$mm.'/'.$aa;
+}
 
 function getMoth($mois) {
 switch ($mois){
@@ -500,7 +505,25 @@ function getMainPerso($CHARS,$DB,$id){
     return $nom;
     
 }
-
+function getStatutProjet($DB,$id) {
+   //DB SITE
+	if ($id == 0) 
+	{
+		$statut = "Inconnu";
+	}
+	else
+	{
+		$sql= " SELECT statutprojet from `statutprojet` WHERE `id` = $id;";
+		$req = $DB->prepare($sql);
+		$req->execute();
+		
+		$d = $req->fetch(PDO::FETCH_OBJ);
+		
+		$statut = $d->statutprojet;
+	}
+   
+    return $statut;
+}
 
 
 function getMail($id,$DB){

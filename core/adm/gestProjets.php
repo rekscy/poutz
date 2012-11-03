@@ -27,10 +27,14 @@ if(isset($_GET['projetsEdit']) && ($_GET['projetsEdit'])){
 		$projet= ucfirst($_POST['projet']);
 		$idUser = $_SESSION['id'];
 		$famille= ($_POST['FamilleProjets']);
+		$ddebut= ($_POST['datedepart']);
+		$dfin= ($_POST['datefin']);
+		$statutprojet= ($_POST['StatutProjet']);
 		
-		$sql= "UPDATE `projets` SET `projet`=:projet, `familleId`=:famille, `date`=now(), `gmId`='$idUser'  WHERE (`id`=$idprojet)";
+		$sql= "UPDATE `projets` SET `projet`=:projet, `familleId`=:famille, `date`=now(), `gmId`='$idUser', `datedebut`=:ddebut, `datefin`=:dfin, `idxstatutprojet`=:statutprojet ";
+		$sql.="WHERE (`id`=$idprojet)";
 		$req = $DB->prepare($sql);
-		$req->execute(array('projet' => $projet,'famille' =>$famille));
+		$req->execute(array('projet' => $projet,'famille' =>$famille,'ddebut' =>$ddebut,'dfin' =>$dfin,'statutprojet' =>$statutprojet));
 		
 		?>
 		<fieldset>   
@@ -58,14 +62,29 @@ if(isset($_GET['projetsEdit']) && ($_GET['projetsEdit'])){
     
         <form action="index.php?page=gestProjets&&projetsEdit=<?php echo $d->id; ?>" method="post" enctype="multipart/form-data">
             <fieldset>   
-            <legend> Edition d'un projet</legend>
-            <label>Projet</label><br/>
-            <input type="text" name="projet" value="<?php echo $d->projet; ?>"/><br/><br/>
-			<label>Famille:</label>
-			<select name="FamilleProjets">
-				<?php echo recupliste($DB,'famille',$d->familleId);
-				?>
-			</select><br/><br/>				
+				<legend> Edition d'un projet</legend>
+
+				<label>Projet</label><br/>
+				<input type="text" name="projet" value="<?php echo $d->projet; ?>"/><br/><br/>
+				
+				<label>Famille:</label>
+				<select name="FamilleProjets">
+					<?php echo recupliste($DB,'famille',$d->familleId);
+					?>
+				</select><br/><br/>
+				<label>Date de départ:</label>
+				<input type="date" name="datedepart" value="<?php echo $d->datedebut;?>"/>
+				<br/><br/>
+
+				<label>Date de fin:</label>
+				<input type="date" name="datefin" value="<?php echo $d->datefin;?>"/><br/><br/>
+
+				<label>Statut:</label>
+				<select name="StatutProjet">
+					<?php echo recupliste($DB,'statutprojet',0);?>
+				</select><br/><br/>				
+
+			
             <input type="submit" value="Enregistrer" class="send"/>
             </fieldset> 
         </form>
@@ -75,14 +94,18 @@ if(isset($_GET['projetsEdit']) && ($_GET['projetsEdit'])){
  
 if((isset($_GET['projetsAdd'])) &&($_GET['projetsAdd']==2)) { 
 	if(isset($_POST['projet'])){
-		$titre=$_POST['projet'];
+//		$titre=$_POST['projet'];
 
-		$sql = "INSERT INTO `projets` ( `projet`, `date`, `gmId`,`familleId`) VALUES ( :projet, now(), :idUser, :idFamille)";
+		$sql = "INSERT INTO `projets` ( `projet`, `date`, `gmId`,`familleId`,`datedebut`,`datefin`,`idxstatutprojet`) ";
+		$sql.= "VALUES ( :projet, now(), :idUser, :idFamille, :ddebut, :dfin,:idstatut)";
 		$req = $DB->prepare($sql);
 		$req->execute(array(
 			'projet' => ucfirst($_POST['projet']),
 			'idUser' => $_SESSION['id'],
-			'idFamille' => $_POST['FamilleProjets']
+			'idFamille' => $_POST['FamilleProjets'],
+			'ddebut' => $_POST['datedepart'],
+			'dfin' => $_POST['datefin'],
+			'idstatut' => $_POST['StatutProjet']
 		));
 		unset ($_POST['projet']);
     }
@@ -101,14 +124,28 @@ if((isset($_GET['projetsAdd'])) &&($_GET['projetsAdd']==1)){
 ?>
         <form action="index.php?page=gestProjets&&projetsAdd=2" method="post">
             <fieldset>   
-            <legend> Ajout d'un projet</legend>
-                <label>Projet:</label>
-                <input type="text" name="projet" value="<?php if(isset($_SESSION['projet'])){ echo $_SESSION['projet'];} ?>"/><br/><br/>
+				<legend> Ajout d'un projet</legend>
+
+				<label>Projet:</label>
+				<input type="text" name="projet" value="<?php if(isset($_SESSION['projet'])){ echo $_SESSION['projet'];} ?>"/><br/><br/>
+
 				<label>Famille:</label>
 				<select name="FamilleProjets">
 					<?php echo recupliste($DB,'famille',0);?>
 				</select><br/><br/>				
-                <input type="submit" value="Poster" class="send"/>
+
+				<label>Date de départ:</label>
+				<input type="date" name="datedepart"/><br/><br/>
+
+				<label>Date de fin:</label>
+				<input type="date" name="datefin"/><br/><br/>
+
+				<label>Statut:</label>
+				<select name="StatutProjet">
+					<?php echo recupliste($DB,'statutprojet',0);?>
+				</select><br/><br/>				
+				
+				<input type="submit" value="Poster" class="send"/>
             </fieldset> 
         </form>
 <?php }
@@ -127,10 +164,13 @@ else
 			<th width='10'><strong></strong></th>
 			<th width='240'><strong>Projet</strong></th>
 			<th width='80'><strong>Propriétaire</strong></th>
-			<th width='140'><strong>Date</strong></th>
+			<th width='100'><strong>Date</strong></th>
 			<th width='140'><strong>Famille</strong></th>
-			<th width='80'><strong>Editer</strong></th>
-			<th width='80'><strong>Supprimer</strong></th>
+			<th width='140'><strong>Statut</strong></th>
+			<th width='100'><strong>Début</strong></th>
+			<th width='100'><strong>Fin</strong></th>
+			<th width='60'><strong>Editer</strong></th>
+			<th width='60'><strong>Supp.</strong></th>
 		</thead>
 <?php
 
@@ -146,11 +186,15 @@ else
 				<td style="color: #FFE7A1; font-weight: bold;"> <strong><?php echo $d->projet; ?></strong></td>
 				<td> <?php 
 					echo getMainPerso($CHARS, $DB, $d->gmId);
-					?></td>
-				<td> <?php echo convertTime($d->date); ?></td>
+					?>
+				</td>
+				<td> <?php echo convertTime_court($d->date); ?></td>
 				<td> <?php echo recupobjetliste($DB,$d->familleId,'famille'); ?></td>
+				<td> <?php echo recupobjetliste($DB,$d->idxstatutprojet,'statutprojet'); ?></td>
+				<td> <?php echo convertTime_court($d->datedebut); ?></td>
+				<td> <?php echo convertTime_court($d->datefin); ?></td>
 				<td> <a href="index.php?page=gestProjets&&projetsEdit=<?php echo $d->id;?>">Editer</a></td>
-				<td> <a href="index.php?page=gestProjets&&projetsDelete=<?php echo $d->id;?>">Supprimer</a></td>
+				<td> <a href="index.php?page=gestProjets&&projetsDelete=<?php echo $d->id;?>">Supp.</a></td>
 			</tr>
 		<?php  
 		} 

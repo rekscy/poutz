@@ -2,8 +2,8 @@
 
 //Informations DB local
 $host_db = 'localhost';
-$user_db = 'root';
-$pass_db = "";
+$user_db = 'test';
+$pass_db = "test";
 $port_db = '3306';
 
 
@@ -16,7 +16,7 @@ $port_db = '3306';
 
 
 //Informations distantes de serveur jeux
-$host_db_dist = 'rolkithan.fr';
+$host_db_dist = 'localhost';
 
 
 
@@ -41,10 +41,10 @@ $host_db_dist = 'rolkithan.fr';
 //$world = 'rol_world';
 //$site = 'rol_site';
 
-$realmd = 'dev_auth';
-$characters = 'dev_char';
-$world = 'arkdb';
-$site = 'dev_rolSite';
+$realmd = 'rol_realm';
+$characters = 'rol_char';
+$world = 'rol_world';
+$site = 'rol_site';
 
 try {
     
