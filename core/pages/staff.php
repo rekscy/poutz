@@ -28,8 +28,8 @@ if(!isset($_SESSION['name']) && !isset($_SESSION['accountLevel'])){
 ?>     
              <table class="voteTop" style="border:none">
                 <thead>
-                <th width='190'><strong>Nom</strong></th>
-                <th width='190'><strong>Grade</strong></th>
+                <th width='140'><strong>Nom</strong></th>
+                <th width='240'><strong>Grade</strong></th>
                 <th width='100'><strong>Depuis le:</strong></th>
                 <th width='60'><strong>Contacter</strong></th>
                 </thead>
