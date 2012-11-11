@@ -80,7 +80,7 @@ if(!isset($_SESSION['name']) && !isset($_SESSION['accountLevel'])){
             ?>
                 <tr style=" font-size:12px; color: #FFF;">
                     <td> <?php echo getMainPerso($CHARS, $DB, $e->id);?></td>
-                    <td> <?php echo'Manager des maîtres du jeu'; ?></td>
+                    <td> <?php echo'Resp. des maîtres du jeu'; ?></td>
                     <td> <?php echo convertTime(getSignIn($e->id, $DB)) ?></td>
                     <td> <a href="mailto:<?php echo getMail($e->id, $DB); ?>"><img  style="width: 30px; height: 20px; margin: auto;" src="template/img/contact.png" alt=""/></a></td>
                 </tr>
