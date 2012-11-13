@@ -89,13 +89,13 @@ $cat =stripcslashes($_GET['categorie']);
 
 }}else{
     
-$sql= "SELECT * FROM `categorie` ORDER BY `id` ASC " ;
+$sql= "SELECT * FROM `categories` ORDER BY `id` ASC " ;
 $req = $DB->prepare($sql);
 $req->execute();
 
 while ($d = $req->fetch(PDO::FETCH_OBJ)) {
 
-$prCnt= CalculPourcentAvance($DB, 'categorie', $d->id);?>
+$prCnt= CalculPourcentAvance($DB, 'categories', $d->id);?>
 <style> html body div#mainContent div#blockRight fieldset div<?php echo '#c'.$d->id;?>.ui-progressbar div.ui-progressbar-value.ui-widget-header { border: 1px solid #aaaaaa; background: <?php echo getPercentColor($prCnt);?>; color: #222222; font-weight: bold;box-shadow:inner 4px 4px 4px #000; }</style>
     <script>
     $(function() {
