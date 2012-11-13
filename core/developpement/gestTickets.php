@@ -1,3 +1,43 @@
+<script type="text/javascript" >
+  $(document).ready(function() {
+    var $categories = $('#categories');
+    var $SousCategories = $('#SousCategories');
+     
+    // chargement des categories
+    $.ajax({
+        url: 'template/ajax/menuCategories/categories.php',
+        data: 'idCategorie', // on envoie $_GET['idCategorie']
+        dataType: 'json', // on veut un retour JSON
+        success: function(json) {
+            $.each(json, function(index, value) { // pour chaque noeud JSON
+                // on ajoute l option dans la liste
+                $categories.append('<option value="'+ index +'">'+ value +'</option>');
+            });
+        }
+    });
+ 
+    // à la sélection d une catégorie dans la liste
+    $categories.on('change', function() {
+        var val = $(this).val(); // on récupère la valeur des categories
+ 
+        if(val != '') {
+            $SousCategories.empty(); // on vide la liste des sous categories
+             
+            $.ajax({
+                url: 'template/ajax/menuCategories/categories.php',
+                data: 'idSousCategorie='+ val, // on envoie $_GET['idSousCategorie']
+                dataType: 'json',
+                success: function(json) {
+                    $.each(json, function(index, value) {
+                        $SousCategories.append('<option value="'+ index +'">'+ value +'</option>');
+                    });
+                }
+            });
+        }
+    });
+    });
+</script>
+
 <?php    
     if(!verifPermissionAccess($REALM,$_SESSION['id'],0) && !isset($_SESSION['Administrateur'])){
        header('Location: index.php');
@@ -22,16 +62,17 @@ if(isset($_GET['ticketsDelete']) && ($_GET['ticketsDelete'])){
     
 if(isset($_GET['ticketsEdit']) && ($_GET['ticketsEdit'])){
 	$idtickets = $_GET['ticketsEdit'];
-	if((isset($_POST['tickets'])) && (isset($_POST['CategorieTickets']))) {
+	if((isset($_POST['tickets'])) && (isset($_POST['categories']))) {
 		$tickets= ucfirst($_POST['tickets']);
 		$idUser = $_SESSION['id'];
-		$categorie= ($_POST['CategorieTickets']);
+		$categorie= ($_POST['categories']);
+		$sousCategorie= ($_POST['SousCategories']);
 		$statut= ($_POST['StatutTickets']);
 		$commentaire = ($_POST['contentTickets']);
 		$numero = ($_POST['numero']) + 1;
 		
 		// Modification du tickets
-		$sql = "UPDATE `tickets` SET `tickets`=:montickets, `categorieId`=$categorie, `statutId`=$statut, `date`=now(), `proprioId`='$idUser' WHERE (`id`=$idtickets)";
+		$sql = "UPDATE `tickets` SET `tickets`=:montickets, `categorieId`=$categorie,`tacheId`=$sousCategorie, `statutId`=$statut, `date`=now(), `proprioId`='$idUser' WHERE (`id`=$idtickets)";
 		$req = $DB->prepare($sql);
 		$req->execute(array(
 			'montickets' => $tickets
@@ -39,7 +80,7 @@ if(isset($_GET['ticketsEdit']) && ($_GET['ticketsEdit'])){
 		// Ajout du commentaire (on ne modifie pas pour garder la traçabilité
 		$sql = "INSERT INTO `ticketscommentaires` ( `idtickets`, `numero`,`datecommentaire`, `proprioId`,`commentaire`) VALUES ( :tickets, :numero, now(), :idUser, :commentaire)";
 		$req = $DB->prepare($sql);
-		echo "*".$sql."*".$commentaire."*";
+
 		$req->execute(array(
 			'tickets' => $idtickets,
 			'numero' => $numero,
@@ -88,14 +129,18 @@ if(isset($_GET['ticketsEdit']) && ($_GET['ticketsEdit'])){
 			<label>Titre du ticket:</label><br/>
 			<input type="text" name="tickets" value="<?php echo $d->tickets; ?>"/><br/><br/>
 			<label>Catégorie:</label>
-			<select name="CategorieTickets">
-				<?php echo recupliste($DB,'categorie',$d->categorieId);?>
+			<select id="categories" name="categories">
+                            <option value=" <?php echo $d->categorieId; ?>"><?php echo recupobjetliste($DB, 'categories', 'nom', $d->categorieId, null);  ?></option>
+			</select><br/><br/>
+			<label>Sous-catégorie:</label>
+			<select id="SousCategories" name="SousCategories">
+                            <option value=" <?php echo $d->tacheId; ?>"><?php echo recupobjetliste($DB, 'taches', 'nom', $d->tacheId, null);  ?></option>
 			</select><br/><br/>
 			<?php 
 			if (isset($_SESSION['Administrateur'])): ?>
 				<label>Statut:</label>
 				<select name="StatutTickets">
-					<?php echo recupliste($DB,'statut',$d->statutId);?>
+					<?php echo recupliste($DB,'statut','statut',$d->statutId);?>
 				</select>
 				<input type="text" name="numero" style="visibility:hidden" value="<?php echo $d->numero; ?>"/>
 				<br/><br/>
@@ -112,8 +157,12 @@ if(isset($_GET['ticketsEdit']) && ($_GET['ticketsEdit'])){
 		else
 		{
 			?>
-			<label>Contenu du : <?php echo $d->datecommentaire." par Paulo";?></label>
-			<textarea cols="80" rows="10" style="background-color:lightsteelblue;" readonly="readonly" name="contentTickets2"><?php echo $d->commentaire; ?></textarea>
+			
+			<div style=" border: 1px saddlebrown solid; margin: 3px; padding: 4px;font-size:10px; line-height: 11px; vertical-align: top; background-color:#28221c; color: #6c3b22;" name="contentTickets2">
+                            <p style="font-size: 12px; text-transform: uppercase; color:gold;">Commentaire posté le <?php echo convertTime($d->datecommentaire)." par ". getMainPerso($CHARS, $DB, $d->proprioId);?></p>
+                            <hr/>
+                            <div style="color:white;"><?php echo $d->commentaire; ?></div>
+                        </div>
 			<?php
 		}
 	}
@@ -176,8 +225,8 @@ if((isset($_GET['ticketsAdd'])) &&($_GET['ticketsAdd']==1)){
                 <label>Titre du ticket:</label>
                 <input type="text" name="tickets" value="<?php if(isset($_SESSION['tickets'])){ echo $_SESSION['tickets'];} ?>"/><br/><br/>
 				<label>Catégorie:</label>
-				<select name="CategorieTickets">
-					<?php echo recupliste($DB,'categorie',0);
+				<select id="CategorieTickets" name="CategorieTickets">
+					<?php echo recupliste($DB,'categories','nom',0);
 					?>
 				</select><br/><br/>				
                 <label>Contenu:</label>
@@ -196,53 +245,38 @@ else
 </fieldset>
 <fieldset>   
     <legend> Liste des tickets en cours</legend>
-	 <table class="voteTop" style="border:none; text-align: center;">
-		<thead>
-			<th width='10'><strong></strong></th>
-			<th width='240'><strong>Tickets</strong></th>
-			<th width='80'><strong>Propriétaire</strong></th>
-			<th width='80'><strong>Date</strong></th>
-			<th width='140'><strong>Catégorie</strong></th>
-			<th width='140'><strong>Statut</strong></th>
-                        
-			<th width='60'><strong>Editer</strong></th>
-			<th width='60'><strong>Supp.</strong></th>
-		</thead>
+    <div id="listeBug">
 <?php
 		$sessionId = $_SESSION['id'];
 		$sql= "SELECT * FROM `tickets` ORDER BY `id` DESC LIMIT 0, 50" ;
 		$req = $DB->prepare($sql);
 		$req->execute();
 		
-		while ($d = $req->fetch(PDO::FETCH_OBJ)) {
+		while ($d = $req->fetch(PDO::FETCH_OBJ)) {                   // recupobjetliste($DB, $table, $colonne, $valeur, $condition)
 		?>
-			<tr style=" font-size:12px; color: #FFF; padding: 2px; height: 40px;">
-				<td> <?php echo $d->id; ?></td>
-				<td style="color: #FFE7A1; font-weight: bold;"> <strong><?php echo $d->tickets; ?></strong></td>
-				<td> <?php echo getMainPerso($CHARS, $DB, $d->proprioId); ?></td>
-				<td> <?php echo convertTime_court($d->date); ?></td>
-				<td> <?php echo recupobjetliste($DB,$d->categorieId,'categorie'); ?></td>
-				<td> <?php echo recupobjetliste($DB,$d->statutId,'statut'); ?></td>
-				<?php
-					if (($d->statutId != 3) && $sessionId == $d->proprioId || (isset($_SESSION['Administrateur']))) {
-						?>
-						<td> <a href="index.php?page=gestTickets&&ticketsEdit=<?php echo $d->id;?>">Editer</a></td>
-						<td> <a href="index.php?page=gestTickets&&ticketsDelete=<?php echo $d->id;?>">Supp.</a></td>
-						<?php
-					}
-					else
-					{ 
-						?>
-						<td> <a href="#"></a></td>
-						<td> <a href="#"></a></td>
-						<?php
-					}
-				?>
-			</tr>
-		<?php  
-		} 
-		?>
-       </table>
+        <div id="bugNum<?php echo $d->id; ?>" class="reportDev">
+                <?php 
+            if (($d->statutId != 3) && $sessionId == $d->proprioId || (isset($_SESSION['Administrateur']))) {?>
+                <div style="float:right; ">    
+                <a style="font-size: 9px;" href="index.php?page=gestTickets&&ticketsEdit=<?php echo $d->id;?>">Editer</a> //
+                <a style="font-size: 9px; color: red;" href="index.php?page=gestTickets&&ticketsDelete=<?php echo $d->id;?>">Supp.</a>
+                </div>
+            <?php }?>
+            <div style=" background:  #0A0501; border: #080301 1px solid; margin-bottom: 5px; margin-left: 3px; padding: 1px; ">
+                <p style="color:orange;">
+                    <span style="color:#<?php echo recupobjetliste($DB,'statut','couleur',$d->statutId,null); ?>; font-size: 10px;"><?php echo recupobjetliste($DB,'statut','statut',$d->statutId,null); ?></span>
+                    <span style="color:#8b8b8b; font-size: 10px;"><?php echo recupobjetliste($DB,'categories','nom',$d->categorieId,null); ?> ></span>
+                    <span style="color:#8b8b8b; font-size: 10px;"><?php echo recupobjetliste($DB,'taches','nom',$d->tacheId,null); ?> ></span>
+
+                 <?php echo $d->tickets; ?>
+                </p>
+                <p style="color: #E5EFFD; padding-left: 6px; font-size: 10px;"><?php echo chaineLimitee(recupobjetliste($DB,'ticketscommentaires','commentaire',null,array('idtickets'=>$d->id,'numero'=>1 )),30); ?></p>
+                
+                <p style="color: #E5EFFD; padding-left: 6px; font-size: 10px;">Reporté par <span style="color: #FFBD69"><?php echo getMainPerso($CHARS, $DB, $d->proprioId); ?> </span>le <span style="color: #FFBD69"><?php echo convertTime($d->date); ?></span>  </p> 
+            </div>
+        </div> 
+    <?php }?> 
+    </div>
 <?php
 }
 ?>

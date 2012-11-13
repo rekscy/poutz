@@ -21,7 +21,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 html, body, a { height: 100%; font: normal 13px/1.1  Arial, Helvetica, sans-serif; font-weight: lighter; vertical-align: top;font: normal 13px/1.5  Arial, Helvetica, sans-serif;}
 a { outline: none; text-decoration: none; font-size: 14px; font-weight: bold; color: #ffae00;}
 a:hover { outline: none; text-decoration: underline; color: #ffae00 ; }
-p { margin: 0.5em 0 ; color: white; font-weight: bold; }
+p { margin: 0.5em 0 ; font-weight: bold; }
 textarea { overflow: auto; }
 
 legend{
