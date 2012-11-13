@@ -128,7 +128,7 @@ while ($d = $req->fetch(PDO::FETCH_OBJ))
 ?>
                 <tr style=" font-size:12px; color: #FFF;">
                     <td> <?php echo $d->personnage; ?></td>
-                    <td> <?php echo $_SESSION['level']; ?></td>
+                    <td> <?php echo $d->level; ?></td>
                     <td> <?php echo image_race($d->race); ?></td>
                     <td> <?php echo image_classe($d->classe); ?></td>
                     <td> <?php echo statutRecup($d->status);?></td>
