@@ -75,7 +75,6 @@ function titre_page($page) {
             break;
         case 'suggestion':
             return 'dev';
-            break;
         default:
             return 'erreur';
     }
@@ -2584,18 +2583,49 @@ function traitementAchatArticle($DB, $CHARS, $idArticle, $characterGuid){
             break;
     }
 }
-function recupobjetliste($DB, $id, $table){
-	$req = $DB->prepare('SELECT '.$table.' from '.$table.' WHERE `id` = '.$id);
+function recupobjetliste($DB, $table,$colonne,$valeur,$condition){
+        
+        $sql='SELECT'; //aplication du select
+    
+        if(is_array($colonne)){ //Selectionne une colonne en particulier ou plusieurs si on a un array
+            foreach ($colonne as $k) { 
+                $sql.=" $k ,";
+            }
+
+            $sql= substr_replace($sql, '', -1); //Efface , de la derniere colonne
+        }else{
+            $sql.=" $colonne"; //Si on selectionne 1 seul colonne
+        }
+
+        $sql.=' FROM '.$table.' WHERE '; // Selection d'une table
+        
+        if(isset($condition)){ //Aplication de conditions pour le WHERE utiliser un array si plusieurs ex: array($k => $v,...)
+            if(is_array($condition)){
+                
+                $valeur =null;                  //On a pas besoin de cette variable si on utilise un tableau
+                foreach ($condition as $k=>$v) { 
+                    $sql.=" $k = $v AND";
+                }
+
+                $sql= substr_replace($sql, '', -3);// Efface le AND de la derniere condition
+            }else{
+                $sql.=" $condition=$valeur"; //Ciblage d'une collone et d'une valeur
+            }
+        }else{
+            $sql.=" id=$valeur"; // Dans le cas ou on précise pas les conditions la valeur correspond a un id
+        }
+        
+	$req = $DB->prepare($sql);
 	$req->execute();
 
 	$result = $req->fetchAll(PDO::FETCH_ASSOC);
-	if( count($result) > 0 )
-	{
-		foreach($result as $donnees)
-		{
-			return $donnees[$table];
-		}
-	}
+	
+        
+        if( count($result) > 0 ){
+
+       foreach ($result as $data) {
+                return $data[$colonne];
+	}}
 	else
 	{
 		return 'Aucun';
@@ -2604,11 +2634,11 @@ function recupobjetliste($DB, $id, $table){
 	unset($result);
 }
 
-function recupliste($DB, $table,$value){
-	$sql = 'SELECT id,'.$table.' from '.$table;
+function recupliste($DB, $table,$colonne,$value){
+	$sql = 'SELECT id,'.$colonne.' from '.$table;
 	
 	if ($value == 0) {
-		$sql.=' order by '.$table;
+		$sql.=' order by '.$colonne;
 	}
 	else
 	{
@@ -2626,11 +2656,11 @@ function recupliste($DB, $table,$value){
 		{
 			$cle = $donnees['id'];
 			if ($cle == $value) {
-				$html.= '<option selected value="'.$cle.'">'.$donnees[$table].'</option>';
+				$html.= '<option selected value="'.$cle.'">'.$donnees[$colonne].'</option>';
 			}
 			else
 			{
-				$html.= '<option value="'.$cle.'">'.$donnees[$table].'</option>';
+				$html.= '<option value="'.$cle.'">'.$donnees[$colonne].'</option>';
 			}
 		}
 	}
