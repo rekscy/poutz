@@ -2,7 +2,7 @@
 
 if(isset($_GET['idCategorie']) || isset($_GET['idSousCategorie'])) {
  
-    include_once 'core/includes/conf.php';
+    include_once 'conf.php';
     
     $json = array();
      
@@ -27,7 +27,7 @@ if(isset($_GET['idCategorie']) || isset($_GET['idSousCategorie'])) {
     // résultats
     while($donnees = $resultat->fetch(PDO::FETCH_ASSOC)) {
         // je remplis un tableau et mettant l'id en index
-        $json[$donnees['id']][] = utf8_encode($donnees['nom']);
+        $json[$donnees['id']][] =$donnees['nom'];
     }
      
     // envoi du résultat au success
