@@ -3010,6 +3010,8 @@ function  ajouterTache($DB,$titre,$cat){
             $req = $DB->prepare($sql);
             $req->execute(); //INSERTION SOUS-CATEGORIE
             
+              break;
+            
         case 8:
             $titreCategorie='Événement mondial';
 
