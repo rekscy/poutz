@@ -58,7 +58,7 @@ if (isset($_GET['ticketId']) && is_numeric($_GET['ticketId'])) {
             <div class="headNews"> <span> <?php echo recupobjetliste($DB, 'tickets', 'tickets', $data->idtickets, null) ?></span>
             </div>
             <div class="middleNews" style=" min-height: 80px;">
-            <div class="corpNews" style=" min-height: 80px;">
+            <div class="corpNews" style=" min-height: 80px; color: white; text-shadow:none; font-weight:lighter;">
                 <p>
         <?php echo $data->commentaire; ?>
                 </p>
