@@ -192,7 +192,7 @@ if((isset($_GET['ticketsAdd'])) &&($_GET['ticketsAdd']==2)) {
 		$req->execute(array(
 			'idtickets' => ucfirst($_POST['tickets']),
 			'idUser' => $_SESSION['id'],
-			'idCategorie' => $_POST['contentTickets']
+			'idCategorie' => $_POST['categories']
 		));
 		$d = $req->fetch(PDO::FETCH_OBJ);
 		$idticket = $d->idtickets;
@@ -217,7 +217,8 @@ if((isset($_GET['ticketsAdd'])) &&($_GET['ticketsAdd']==2)) {
 	</fieldset>
 	<?php    
 }else{
-    echo "<span class='erreurFormulaire'  color='red'>Veuillez remplir tous les champs</span>";
+    echo "<span class='erreurFormulaire'  color='red'>Veuillez remplir tous les champs</span> <br/><a href='index.php?page=gestTickets'>Revenir à la gestion des tickets</a>";
+    
 }
 
 
