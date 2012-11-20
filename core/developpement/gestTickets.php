@@ -177,7 +177,7 @@ if((isset($_GET['ticketsAdd'])) &&($_GET['ticketsAdd']==2)) {
 		$titre=$_POST['tickets'];
 
 		// création de l'entete du ticket
-		$sql = "INSERT INTO `tickets` ( `tickets`, `date`, `proprioId`,`categorieId`) VALUES ( :tickets, now(), :idUser, :idCategorie, :tacheId)";
+		$sql = "INSERT INTO `tickets` ( `tickets`, `date`, `proprioId`,`categorieId`,`tacheId`) VALUES ( :tickets, now(), :idUser, :idCategorie, :tacheId)";
 		$req = $DB->prepare($sql);
 		$req->execute(array(
 			'tickets' => ucfirst($_POST['tickets']),
@@ -232,11 +232,11 @@ if((isset($_GET['ticketsAdd'])) &&($_GET['ticketsAdd']==1)){
                 <input type="text" name="tickets" value="<?php if(isset($_SESSION['tickets'])){ echo $_SESSION['tickets'];} ?>"/><br/><br/>
 			<label>Catégorie:</label>
 			<select id="categories" name="categories">
-                            <option></option>
+                            <option value=""></option>
 			</select><br/><br/>
 			<label>Sous-catégorie:</label>
 			<select id="SousCategories" name="SousCategories">
-                            <option></option>
+                            <option value=""></option>
 			</select><br/><br/>				
                 <label>Contenu:</label>
                 <textarea cols="80" rows="30"  name="contentTickets"><?php if(isset($_SESSION['contentTickets'])){ echo $_SESSION['contentTickets'];} ?></textarea>
