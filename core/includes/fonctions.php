@@ -61,6 +61,9 @@ function titre_page($page) {
         case 'gestTickets':
             return 'dev';
             break;
+        case 'viewTicket':
+            return 'dev';
+            break;
         case 'devReport':
             return 'dev';
             break;
@@ -75,6 +78,7 @@ function titre_page($page) {
             break;
         case 'suggestion':
             return 'dev';
+            break;
         default:
             return 'erreur';
     }

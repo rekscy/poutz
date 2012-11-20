@@ -278,7 +278,7 @@ else
                     <span style="color:#8b8b8b; font-size: 10px;"><?php echo recupobjetliste($DB,'categories','nom',$d->categorieId,null); ?> ></span>
                     <span style="color:#8b8b8b; font-size: 10px;"><?php echo recupobjetliste($DB,'taches','nom',$d->tacheId,null); ?> ></span>
 
-                 <?php echo $d->tickets; ?>
+                    <a href="index.php?page=viewTicket&&ticketId=<?php echo $d->id; ?>"> <?php echo $d->tickets; ?></a>
                 </p>
                 <p style="color: #E5EFFD; padding-left: 6px; font-size: 10px;"><?php echo chaineLimitee(recupobjetliste($DB,'ticketscommentaires','commentaire',null,array('idtickets'=>$d->id,'numero'=>1 )),30); ?></p>
                 
