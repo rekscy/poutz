@@ -2746,7 +2746,7 @@ function  ajouterTache($DB,$titre,$cat){
             
             $titreCategorie='Zone';
             
-            $sql = "INSERT INTO `taches` (`tache`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '$cat')";
+            $sql = "INSERT INTO `taches` (`nom`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '$cat')";
             $req = $DB->prepare($sql);
             $req->execute(); //INSERTION CATEGORIE
 
@@ -2797,7 +2797,7 @@ function  ajouterTache($DB,$titre,$cat){
         case 2:
             $titreCategorie='Instance';
             
-            $sql = "INSERT INTO `taches` (`tache`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '$cat')";
+            $sql = "INSERT INTO `taches` (`nom`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '$cat')";
             $req = $DB->prepare($sql);
             $req->execute(); //INSERTION CATEGORIE
 
@@ -2852,7 +2852,7 @@ function  ajouterTache($DB,$titre,$cat){
         case 3:
             $titreCategorie='Raid';
             
-            $sql = "INSERT INTO `taches` (`tache`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '$cat')";
+            $sql = "INSERT INTO `taches` (`nom`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '$cat')";
             $req = $DB->prepare($sql);
             $req->execute(); //INSERTION CATEGORIE
 
@@ -2908,7 +2908,7 @@ function  ajouterTache($DB,$titre,$cat){
         case 4:
             $titreCategorie='Réputation';
             
-            $sql = "INSERT INTO `taches` (`tache`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '$cat')";
+            $sql = "INSERT INTO `taches` (`nom`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '$cat')";
             $req = $DB->prepare($sql);
             $req->execute(); //INSERTION CATEGORIE
 
@@ -2939,7 +2939,7 @@ function  ajouterTache($DB,$titre,$cat){
         case 5:
             $titreCategorie='Sorts';
             
-            $sql = "INSERT INTO `taches` (`tache`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '$cat')";
+            $sql = "INSERT INTO `taches` (`nom`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '$cat')";
             $req = $DB->prepare($sql);
             $req->execute(); //INSERTION CATEGORIE
 
@@ -2971,7 +2971,7 @@ function  ajouterTache($DB,$titre,$cat){
         case 6:
             $titreCategorie='Talents';
             
-            $sql = "INSERT INTO `taches` (`tache`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '$cat')";
+            $sql = "INSERT INTO `taches` (`nom`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '$cat')";
             $req = $DB->prepare($sql);
             $req->execute(); //INSERTION CATEGORIE
 
@@ -2998,7 +2998,7 @@ function  ajouterTache($DB,$titre,$cat){
         case 7:
             $titreCategorie='Site Web';
 
-            $sql = "INSERT INTO `taches` (`tache`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '$cat')";
+            $sql = "INSERT INTO `taches` (`nom`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '$cat')";
             $req = $DB->prepare($sql);
             $req->execute(); //INSERTION CATEGORIE
 
@@ -3013,7 +3013,7 @@ function  ajouterTache($DB,$titre,$cat){
         case 8:
             $titreCategorie='Événement mondial';
 
-            $sql = "INSERT INTO `taches` (`tache`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '$cat')";
+            $sql = "INSERT INTO `taches` (`nom`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '$cat')";
             $req = $DB->prepare($sql);
             $req->execute(); //INSERTION CATEGORIE
 
