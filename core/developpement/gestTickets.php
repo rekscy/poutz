@@ -227,9 +227,11 @@ if((isset($_GET['ticketsAdd'])) &&($_GET['ticketsAdd']==1)){
                 <input type="text" name="tickets" value="<?php if(isset($_SESSION['tickets'])){ echo $_SESSION['tickets'];} ?>"/><br/><br/>
 			<label>Catégorie:</label>
 			<select id="categories" name="categories">
+                            <option></option>
 			</select><br/><br/>
 			<label>Sous-catégorie:</label>
 			<select id="SousCategories" name="SousCategories">
+                            <option></option>
 			</select><br/><br/>				
                 <label>Contenu:</label>
                 <textarea cols="80" rows="30"  name="contentTickets"><?php if(isset($_SESSION['contentTickets'])){ echo $_SESSION['contentTickets'];} ?></textarea>
