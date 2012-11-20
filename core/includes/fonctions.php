@@ -3021,9 +3021,31 @@ function  ajouterTache($DB,$titre,$cat){
             
             //Création des sous-taches
             $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
-                VALUES ('Avancée-$titre', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+                VALUES ('$titre-Quêtes fonctionnelles', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
             $req = $DB->prepare($sql);
-            $req->execute(); //INSERTION SOUS-CATEGORIE
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+            
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Vendeurs', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+            
+            
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Spawn des pnj', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+                        
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Spawn des objets', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
+             
+             
+            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
+                VALUES ('$titre-Donneurs de quêtes ', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+            $req = $DB->prepare($sql);
+             $req->execute(); //INSERTION SOUS-CATEGORIE
             
             break;
         
