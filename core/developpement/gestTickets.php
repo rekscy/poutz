@@ -173,7 +173,7 @@ if(isset($_GET['ticketsEdit']) && ($_GET['ticketsEdit'])){
 }
  
 if((isset($_GET['ticketsAdd'])) &&($_GET['ticketsAdd']==2)) { 
-	if(isset($_POST['tickets'])){
+	if(isset($_POST['tickets'])&& isset($_POST['categories']) && isset($_POST['categories']) && !empty($_POST['tickets'])&& !empty($_POST['categories']) && !empty($_POST['categories']) ){
 		$titre=$_POST['tickets'];
 
 		// création de l'entete du ticket
@@ -206,7 +206,7 @@ if((isset($_GET['ticketsAdd'])) &&($_GET['ticketsAdd']==2)) {
 			'commentaire' => $_POST['categories'],
 		));
 		unset ($_POST['tickets']);
-    }
+    
     ?>
 	<fieldset>   
 		<legend> Tickets crée avec succés</legend>
@@ -216,6 +216,11 @@ if((isset($_GET['ticketsAdd'])) &&($_GET['ticketsAdd']==2)) {
 		<a href="index.php?page=gestTickets">Revenir à la gestion des tickets</a>
 	</fieldset>
 	<?php    
+}else{
+    echo "<span class='erreurFormulaire'  color='red'>Veuillez remplir tous les champs</span>";
+}
+
+
 }
 
 if((isset($_GET['ticketsAdd'])) &&($_GET['ticketsAdd']==1)){ 
