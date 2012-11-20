@@ -192,7 +192,7 @@ if((isset($_GET['ticketsAdd'])) &&($_GET['ticketsAdd']==2)) {
 		$req->execute(array(
 			'idtickets' => ucfirst($_POST['tickets']),
 			'idUser' => $_SESSION['id'],
-			'idCategorie' => $_POST['categories']
+			'idCategorie' => $_POST['contentTickets']
 		));
 		$d = $req->fetch(PDO::FETCH_OBJ);
 		$idticket = $d->idtickets;
@@ -203,7 +203,7 @@ if((isset($_GET['ticketsAdd'])) &&($_GET['ticketsAdd']==2)) {
 		$req->execute(array(
 			'tickets' => $idticket,
 			'idUser' => $_SESSION['id'],
-			'commentaire' => $_POST['categories'],
+			'commentaire' => $_POST['contentTickets'],
 		));
 		unset ($_POST['tickets']);
     
