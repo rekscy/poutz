@@ -63,7 +63,7 @@ $cat =stripcslashes($_GET['categorie']);
     
     }else{
 
-    $sql= "SELECT * FROM `taches` WHERE `categorie`='$cat' ORDER BY `tache` ASC LIMIT 0, 100" ;
+    $sql= "SELECT * FROM `taches` WHERE `categorie`='$cat' ORDER BY `categorie` ASC LIMIT 0, 100" ;
     $req = $DB->prepare($sql);
     $req->execute();
     echo "<br/><a style='padding:0px;padding-right:10px; color:gold; font-size:10px; float:right;' href='index.php?page=statusServer'>Revenir en arrière</a><br/><br/>";
@@ -79,7 +79,7 @@ $cat =stripcslashes($_GET['categorie']);
         });
         </script>
 
-       <a style="color: orange; padding-left: 5px;" href="index.php?page=statusServer&&categorie=<?php echo $cat;?>&&tache=<?php echo $d->id;?>"><?php echo $d->tache;?>
+       <a style="color: orange; padding-left: 5px;" href="index.php?page=statusServer&&categorie=<?php echo $cat;?>&&tache=<?php echo $d->id;?>"><?php echo $d->nom;?>
         <div  id="t<?php echo $d->id;?>"></div></a><hr style="margin-bottom: 10px; color:#945522; border: #945522;;"/>
 
     <?php }
@@ -95,7 +95,7 @@ $req->execute();
 
 while ($d = $req->fetch(PDO::FETCH_OBJ)) {
 
-$prCnt= CalculPourcentAvance($DB, 'categories', $d->id);?>
+$prCnt= CalculPourcentAvance($DB, 'categorie', $d->id);?>
 <style> html body div#mainContent div#blockRight fieldset div<?php echo '#c'.$d->id;?>.ui-progressbar div.ui-progressbar-value.ui-widget-header { border: 1px solid #aaaaaa; background: <?php echo getPercentColor($prCnt);?>; color: #222222; font-weight: bold;box-shadow:inner 4px 4px 4px #000; }</style>
     <script>
     $(function() {
@@ -105,7 +105,7 @@ $prCnt= CalculPourcentAvance($DB, 'categories', $d->id);?>
     });
     </script>
     
-    <a style="color: orange; padding-left: 5px;" href="index.php?page=statusServer&&categorie=<?php echo $d->id;?>"><?php echo $d->categorie;?>
+    <a style="color: orange; padding-left: 5px;" href="index.php?page=statusServer&&categorie=<?php echo $d->id;?>"><?php echo $d->nom;?>
     <div  id="c<?php echo $d->id;?>"></div></a><hr style="margin-bottom: 10px; color:#945522; border: #945522;;"/>
    
 <?php }} ?>

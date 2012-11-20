@@ -177,12 +177,13 @@ if((isset($_GET['ticketsAdd'])) &&($_GET['ticketsAdd']==2)) {
 		$titre=$_POST['tickets'];
 
 		// création de l'entete du ticket
-		$sql = "INSERT INTO `tickets` ( `tickets`, `date`, `proprioId`,`categorieId`) VALUES ( :tickets, now(), :idUser, :idCategorie)";
+		$sql = "INSERT INTO `tickets` ( `tickets`, `date`, `proprioId`,`categorieId`) VALUES ( :tickets, now(), :idUser, :idCategorie, :tacheId)";
 		$req = $DB->prepare($sql);
 		$req->execute(array(
 			'tickets' => ucfirst($_POST['tickets']),
 			'idUser' => $_SESSION['id'],
-			'idCategorie' => $_POST['CategorieTickets'],
+			'idCategorie' => $_POST['categories'],
+			'tacheId' => $_POST['SousCategories'],
 		));
 		
 		// récupération de l'id du ticket crée
@@ -191,7 +192,7 @@ if((isset($_GET['ticketsAdd'])) &&($_GET['ticketsAdd']==2)) {
 		$req->execute(array(
 			'idtickets' => ucfirst($_POST['tickets']),
 			'idUser' => $_SESSION['id'],
-			'idCategorie' => $_POST['CategorieTickets']
+			'idCategorie' => $_POST['categories']
 		));
 		$d = $req->fetch(PDO::FETCH_OBJ);
 		$idticket = $d->idtickets;
@@ -202,7 +203,7 @@ if((isset($_GET['ticketsAdd'])) &&($_GET['ticketsAdd']==2)) {
 		$req->execute(array(
 			'tickets' => $idticket,
 			'idUser' => $_SESSION['id'],
-			'commentaire' => $_POST['contentTickets'],
+			'commentaire' => $_POST['categories'],
 		));
 		unset ($_POST['tickets']);
     }
@@ -224,11 +225,12 @@ if((isset($_GET['ticketsAdd'])) &&($_GET['ticketsAdd']==1)){
             <legend> Ajout d'un tickets</legend>
                 <label>Titre du ticket:</label>
                 <input type="text" name="tickets" value="<?php if(isset($_SESSION['tickets'])){ echo $_SESSION['tickets'];} ?>"/><br/><br/>
-				<label>Catégorie:</label>
-				<select id="CategorieTickets" name="CategorieTickets">
-					<?php echo recupliste($DB,'categories','nom',0);
-					?>
-				</select><br/><br/>				
+			<label>Catégorie:</label>
+			<select id="categories" name="categories">
+			</select><br/><br/>
+			<label>Sous-catégorie:</label>
+			<select id="SousCategories" name="SousCategories">
+			</select><br/><br/>				
                 <label>Contenu:</label>
                 <textarea cols="80" rows="30"  name="contentTickets"><?php if(isset($_SESSION['contentTickets'])){ echo $_SESSION['contentTickets'];} ?></textarea>
                 <input type="submit" value="Poster" class="send"/>
