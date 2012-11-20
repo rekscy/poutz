@@ -3006,17 +3006,22 @@ function  ajouterTache($DB,$titre,$cat){
             
             //Création des sous-taches
             $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
-                VALUES ('$titre-Site', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+                VALUES ('Avancée-$titre', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
             $req = $DB->prepare($sql);
             $req->execute(); //INSERTION SOUS-CATEGORIE
             
-            $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
-                VALUES ('$titre-Boutique', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+        case 8:
+            $titreCategorie='Événement mondial';
+
+            $sql = "INSERT INTO `taches` (`tache`, `gmid`, `date`, `categorie`) VALUES ('$titreCategorie-$titre', '$gmId', now(), '$cat')";
             $req = $DB->prepare($sql);
-            $req->execute(); //INSERTION SOUS-CATEGORIE
+            $req->execute(); //INSERTION CATEGORIE
+
+            $idTache= $DB->lastInsertId(); //RECUPERERE ID TACHE
             
+            //Création des sous-taches
             $sql = "INSERT INTO `sous-taches` (`nom`, `gmid`, `date`, `nbrTotalAction`, `nbrActionTermine`, `tache`, `categorie`, `famille`) 
-                VALUES ('$titre-', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
+                VALUES ('Avancée-$titre', '$gmid', now(), '100', '0', '$idTache', '$cat', '2')";
             $req = $DB->prepare($sql);
             $req->execute(); //INSERTION SOUS-CATEGORIE
             

@@ -126,7 +126,7 @@ $cat =stripcslashes($_GET['categorie']);
     <a style="color: orange; padding-left: 5px; " href="index.php?page=admin&&categorie=<?php echo $cat;?>&&addTache=1">Cliquez ici...</a>
 </fieldset>      
 <?php }
-    $sql= "SELECT * FROM `taches` WHERE `categorie`='$cat' ORDER BY `tache` ASC LIMIT 0, 100" ;
+    $sql= "SELECT * FROM `taches` WHERE `categorie`='$cat' ORDER BY `nom` ASC LIMIT 0, 100" ;
     $req = $DB->prepare($sql);
     $req->execute();
     
@@ -147,7 +147,7 @@ $cat =stripcslashes($_GET['categorie']);
             <a style="color:white; font-size: 11px; float: right;">//</a>
             <a style="color:orange; font-size: 9px; float: right;" href="index.php?page=admin&&categorie=<?php echo $cat;?>&&editTache=<?php echo $d->id;?>">Editer </a>
         <?php } ?>   
-       <a style="color: orange; padding-left: 5px;" href="index.php?page=admin&&categorie=<?php echo $cat;?>&&tache=<?php echo $d->id;?>"><?php echo $d->tache;?>
+       <a style="color: orange; padding-left: 5px;" href="index.php?page=admin&&categorie=<?php echo $cat;?>&&tache=<?php echo $d->id;?>"><?php echo $d->nom;?>
        <div  id="t<?php echo $d->id;?>"></div></a> 
      
         <hr style="margin-bottom: 10px; color:#945522; border: #945522;;"/>
@@ -159,7 +159,7 @@ $cat =stripcslashes($_GET['categorie']);
 
 }}else{ //PARTIE MENU-CATEGORIES COMMENCE ICI
     
-$sql= "SELECT * FROM `categorie` ORDER BY `id` ASC " ;
+$sql= "SELECT * FROM `categories` ORDER BY `id` ASC " ;
 $req = $DB->prepare($sql);
 $req->execute();
 
@@ -175,7 +175,7 @@ $prCnt= CalculPourcentAvance($DB, 'categorie', $d->id);?>
     });
     </script>
     
-    <a style="color: orange; padding-left: 5px;" href="index.php?page=admin&&categorie=<?php echo $d->id;?>"><?php echo $d->categorie;?>
+    <a style="color: orange; padding-left: 5px;" href="index.php?page=admin&&categorie=<?php echo $d->id;?>"><?php echo $d->nom;?>
     <div  id="c<?php echo $d->id;?>"></div></a><hr style="margin-bottom: 10px; color:#945522; border: #945522;;"/>
    
 <?php } ?>
