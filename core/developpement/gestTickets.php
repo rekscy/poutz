@@ -44,6 +44,8 @@
 
 <?php if(isset($_GET['ticketsAdd'])||isset($_GET['ticketsDelete'])||isset($_GET['ticketsEdit'])){ 
 
+    
+    
 if(isset($_GET['ticketsDelete']) && ($_GET['ticketsDelete'])){
     
     $req = $DB->prepare("DELETE FROM `tickets` WHERE (`id` = :idtickets)");
@@ -57,6 +59,10 @@ if(isset($_GET['ticketsDelete']) && ($_GET['ticketsDelete'])){
     
 if(isset($_GET['ticketsEdit']) && ($_GET['ticketsEdit'])){
 	$idtickets = $_GET['ticketsEdit'];
+        
+        if(!isset($_SESSION['name']) && !isset($_SESSION['accountLevel'])){
+      header('Location: index.php?page=connexion');
+}
 	if((isset($_POST['tickets'])) && (isset($_POST['categories']))) {
 		$tickets= ucfirst($_POST['tickets']);
 		$idUser = $_SESSION['id'];
@@ -219,7 +225,12 @@ if((isset($_GET['ticketsAdd'])) &&($_GET['ticketsAdd']==2)) {
 
 }
 
-if((isset($_GET['ticketsAdd'])) &&($_GET['ticketsAdd']==1)){ 
+if((isset($_GET['ticketsAdd'])) &&($_GET['ticketsAdd']==1)){
+    
+    if(!isset($_SESSION['name']) && !isset($_SESSION['accountLevel'])){
+      header('Location: index.php?page=connexion');
+}
+    
 ?>
         <form action="index.php?page=gestTickets&&ticketsAdd=2" method="post">
             <fieldset>   
@@ -261,9 +272,11 @@ else
 		?>
         <div id="bugNum<?php echo $d->id; ?>" class="reportDev">
                 <?php 
-            if (($d->statutId != 3) && $sessionId == $d->proprioId || (isset($_SESSION['Administrateur']))) {?>
+            if ((isset($_SESSION['name']) && $d->statutId != 3) && $sessionId == $d->proprioId || (isset($_SESSION['Administrateur']))) {?>
                 <div style="float:right; ">    
                 <a style="font-size: 9px;" href="index.php?page=gestTickets&&ticketsEdit=<?php echo $d->id;?>">Editer</a> //
+                    <?php }
+            if ((isset($_SESSION['Administrateur']))) {?>
                 <a style="font-size: 9px; color: red;" href="index.php?page=gestTickets&&ticketsDelete=<?php echo $d->id;?>">Supp.</a>
                 </div>
             <?php }?>
