@@ -1,12 +1,13 @@
-<?php
-$debut = microtime(true); 
+<!DOCTYPE html><html>
+	<!--Load Header Template -->
+	<head>
+	<title>  Fermeture de Rolkithan-project</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-define('WEBROOT',dirname(__FILE__)); 
-define('ROOT',dirname(WEBROOT)); 
-define('DS',DIRECTORY_SEPARATOR);
-define('CORE',WEBROOT.DS.'core'); 
-define('BASE_URL',dirname($_SERVER['SCRIPT_NAME'])); 
-
-require CORE.DS.'includes'.DS.'includes.php'; 
-
-?>
+</head>
+<body style="background-color: #140b00; margin: auto;">
+    <div style="width: 1024px; margin: auto;">
+        <img style="  margin-top: 50px;" src="aurevoirRolkithan.jpg" alt="Fermeture definitive de Rolkithan." />
+    </div>
+</body>
+</html>
